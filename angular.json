@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ticket-app": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ticket-app"
+    }
+  },
+  "defaultProject": "ticket-app",
+  "cli": {
+    "analytics": "e366b0e0-91b7-4e4b-a012-af9324d1fea7"
+  }
 }
