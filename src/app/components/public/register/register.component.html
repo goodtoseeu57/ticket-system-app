@@ -1,0 +1,39 @@
+<mat-card>
+    <p style="text-align: center">
+    Register Component
+    </p>
+</mat-card>
+
+<form class="form" [formGroup]="registerForm">
+
+    <mat-form-field appearance="fill">
+        <input matInput formControlName="first_name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <input matInput  formControlName="last_name" required>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+        <input matInput placeholder="chris@test" formControlName="email" required>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+        <input matInput  formControlName="role" required>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+        <input matInput  formControlName="password" required>
+    </mat-form-field>
+
+
+<button mat-raised-button  type="submit" [disabled]="!registerForm.valid" (click)="onSubmit()">  Register </button>
+
+
+</form>
+
+<p style="margin-top: 17px; text-align: center"> Do you have already an account?
+    <button style="margin-left: 5px;" mat-flat-button routerLink="/public/login"> Sign In </button> </p>

@@ -1,0 +1,20 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 133px;
+
+}
+
+.form .mat-form-field {
+    width: 400px;
+}
+
+.form .mat-raised-button {
+    width: 350px;
+}
+
+button {
+    background-color: coral;
+    color: white;
+}
