@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ApiService} from '../../../services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
         password: new FormControl('' , Validators.required),
     })
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder , private apiService: ApiService ) { }
 
   ngOnInit(): void {
         this.registerForm = this.formBuilder.group({
@@ -29,6 +30,9 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
         console.log(this.registerForm.value);
+        this.apiService.post('register' , this.registerForm.value).then((res) => {
+           console.log(res);
+        });
 
     }
 }

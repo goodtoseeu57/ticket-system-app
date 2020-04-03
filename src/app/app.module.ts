@@ -13,6 +13,18 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {HttpClientModule} from '@angular/common/http';
+import {MatIconModule} from '@angular/material/icon';
+import { PrivateComponent } from './components/private/private.component';
+import { BookTicketComponent } from './components/private/book-ticket/book-ticket.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -20,12 +32,15 @@ import {MatCardModule} from '@angular/material/card';
     RegisterComponent,
     PublicComponent,
     LoginComponent,
-    PresentationLandingPageComponent
+    PresentationLandingPageComponent,
+    PrivateComponent,
+    BookTicketComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule
+        BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule,
+        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule
     ],
   providers: [],
   bootstrap: [AppComponent]

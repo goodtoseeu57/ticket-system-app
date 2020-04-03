@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <span>Book ticket</span>
+    <span class="example-fill-remaining-space"></span>
+     <button mat-flat-button (click)="logout()" > Log out</button>
+</mat-toolbar>
+<mat-sidenav-container >
+    <mat-sidenav #snav mode="side">
+    <mat-list>
+        Book a ticket
+    </mat-list>
+        <mat-list>
+            Book an event
+        </mat-list>
+    </mat-sidenav>
+
+
+<mat-sidenav-content>
+<router-outlet></router-outlet>
+</mat-sidenav-content>
+
+</mat-sidenav-container>
