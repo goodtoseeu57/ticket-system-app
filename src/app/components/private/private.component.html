@@ -1,16 +1,35 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="header-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <span>Book ticket</span>
     <span class="example-fill-remaining-space"></span>
-     <button mat-flat-button (click)="logout()" > Log out</button>
+
+    <div class="numberCircle" routerLink="/private/profile"> {{firstLetter}}
+
+    </div>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu"> <mat-icon>more_vert</mat-icon></button>
+    <mat-menu  #menu="matMenu">
+        <button mat-menu-item> {{user.first_name}} </button>
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item (click)="refreshTokenTest()"> Check refresh token </button>
+        <button mat-menu-item (click)="logout()"> Log out</button>
+    </mat-menu>
 </mat-toolbar>
+
 <mat-sidenav-container >
     <mat-sidenav #snav mode="side">
     <mat-list>
-        Book a ticket
-    </mat-list>
-        <mat-list>
+        <mat-list-item routerLink="/private/profile">
+        Profile
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    <mat-list-item routerLink="/private/book-ticket">
+            Book a ticket
+    </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item routerLink="/private/book-ticket">
             Book an event
+        </mat-list-item>
         </mat-list>
     </mat-sidenav>
 

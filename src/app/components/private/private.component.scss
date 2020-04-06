@@ -4,6 +4,56 @@
 
 
 .mat-sidenav {
-    width: 15%;
+    width: 20%;
+    background-color: #02203c;
+
+    mat-list-item {
+        color: white;
+        cursor: pointer;
+    }
+
+    mat-list-item:hover {
+        background-color: white;
+        color: #02203c;
+
+    }
+
+    mat-divider {
+        background-color: white;
+    }
+
 }
+
+
+
+.numberCircle {
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid #666;
+    background-color: white;
+    color: #02203c;
+    cursor: pointer;
+}
+
+.header-toolbar {
+    background-color: #02203c;
+    color: white;
+}
+
+.user-info {
+    display: inline-block;
+    color: #fff!important;
+    font-size: 14px;
+    text-decoration: none!important;
+    font-family: Open Sans,Helvetica,Arial,sans-serif;
+}
+
+.numberCircle:hover .user-info {
+    background-color: #02203c;
+    color: white;
+}
+
 

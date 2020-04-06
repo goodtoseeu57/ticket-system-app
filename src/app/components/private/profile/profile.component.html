@@ -1,0 +1,71 @@
+<mat-toolbar >
+    Profile
+</mat-toolbar>
+
+<div class="profile-container">
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"> {{firstLetter}} </div>
+        <mat-card-title> {{user.first_name}}</mat-card-title>
+        <mat-card-subtitle> {{ user.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://upload.wikimedia.org/wikipedia/en/4/40/Star_Wars_Phantom_Menace_poster.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <p *ngIf="user.role === 'superAdmin'">
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button> {{user.role}} </button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions>
+</mat-card>
+
+    <div class="profile-info">
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Legacy form field</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="user.email">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint> Email</mat-hint>
+        </mat-form-field>
+    </p>
+
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Legacy form field</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="user.first_name">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint> Email</mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Legacy form field</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="user.role">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint> Email</mat-hint>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Legacy form field</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="user.email">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint> Email</mat-hint>
+            </mat-form-field>
+        </p>
+
+    </div>
+
+</div>
+
+<mat-divider></mat-divider>
+<div class="bottom-buttons">
+<button mat-flat-button>
+    Edit your profile
+</button>
+</div>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ApiService} from './api.service';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import {ApiService} from './api.service';
 export class AuthService {
     isLoggedIn: boolean;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService , private router: Router) {
       if (localStorage.getItem('accessToken') && localStorage.getItem('refreshToken')) {
           this.isLoggedIn = true;
       }
@@ -37,6 +38,7 @@ export class AuthService {
              resolve(res);
              localStorage.clear();
              console.log(res);
+             this.router.navigateByUrl('public/login');
          }).catch((err) => {
             reject(err);
          });

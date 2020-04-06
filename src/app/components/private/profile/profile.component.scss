@@ -1,0 +1,50 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12px;
+
+}
+.example-card {
+    max-width: 400px;
+
+
+}
+
+.example-header-image {
+
+        width: 40px;
+        line-height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 18px;
+        border: 2px solid #666;
+        background-color: white;
+        color: #02203c;
+        cursor: pointer;
+
+}
+
+.profile-info {
+    margin-top : 24px;
+}
+
+mat-toolbar {
+    background-color: #f1f3f4;
+    color: #626ee3;
+
+}
+
+
+.bottom-buttons {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .mat-flat-button {
+        background-color: #02203c;
+        color: white;
+    }
+}
+

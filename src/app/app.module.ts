@@ -8,7 +8,7 @@ import { PublicComponent } from './components/public/public.component';
 import { LoginComponent } from './components/public/login/login.component';
 import { PresentationLandingPageComponent } from './components/public/presentation-landing-page/presentation-landing-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -24,6 +24,9 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatMenuModule} from '@angular/material/menu';
+import { ProfileComponent } from './components/private/profile/profile.component';
+import { BookEventComponent } from './components/private/book-event/book-event.component';
 
 
 @NgModule({
@@ -34,13 +37,15 @@ import {MatGridListModule} from '@angular/material/grid-list';
     LoginComponent,
     PresentationLandingPageComponent,
     PrivateComponent,
-    BookTicketComponent
+    BookTicketComponent,
+    ProfileComponent,
+    BookEventComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule,
-        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule
+        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule, MatMenuModule, FormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
