@@ -30,3 +30,9 @@ $ticket-app-theme: mat-light-theme($ticket-app-primary, $ticket-app-accent, $tic
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.unique-toolbar-component {
+    background-color: #f1f3f4;
+    color: #626ee3;
+}

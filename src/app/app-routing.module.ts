@@ -7,6 +7,7 @@ import {PrivateComponent} from './components/private/private.component';
 import {BookTicketComponent} from './components/private/book-ticket/book-ticket.component';
 import {AuthGuard} from './guards/auth.guard';
 import {ProfileComponent} from './components/private/profile/profile.component';
+import {BookEventComponent} from './components/private/book-event/book-event.component';
 
 
 const routes: Routes = [ {path: 'public' , component: PublicComponent , children: [
@@ -15,7 +16,8 @@ const routes: Routes = [ {path: 'public' , component: PublicComponent , children
     ]} ,
     {path: 'private', component: PrivateComponent , canActivateChild: [AuthGuard]  , children: [
             {path: 'book-ticket' , component: BookTicketComponent} ,
-            {path: 'profile' , component: ProfileComponent}
+            {path: 'profile' , component: ProfileComponent} ,
+            {path: 'book-event' , component: BookEventComponent}
         ] }
  ];
 

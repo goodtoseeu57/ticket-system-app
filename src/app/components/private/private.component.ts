@@ -13,16 +13,26 @@ export class PrivateComponent implements OnInit {
     firstLetter: string;
   constructor(private authService: AuthService , private userService: UserService , private apiService: ApiService) { }
 
-  ngOnInit(): void {
-      const id = localStorage.getItem('id');
-      this.userService.getCurrentUser(id).then((res) => {
-          console.log(res);
-          this.user = res;
-          this.firstLetter = this.user.first_name.substring(0 , 1).toUpperCase();
+    async ngOnInit(): Promise<void> {
+        this.getCurrentUser();
+        this.getAllUsers();
+    }
 
-      });
+  async getCurrentUser() {
+    const id = localStorage.getItem('id');
+    const response = await this.userService.getCurrentUser(id);
+    console.log(response);
+    this.user = response;
+    this.firstLetter = this.user.first_name.substring(0, 1).toUpperCase();
 
-  }
+    }
+
+    getAllUsers() {
+        this.userService.getAllUsers().then((res) => {
+            console.log(res);
+        });
+
+    }
 
 
   logout() {

@@ -36,11 +36,16 @@
     background-color: white;
     color: #02203c;
     cursor: pointer;
+
+   .mat-menu-content {
+       width: 272px;
+   }
 }
 
 .header-toolbar {
     background-color: #02203c;
     color: white;
+    position: sticky;
 }
 
 .user-info {
@@ -55,5 +60,7 @@
     background-color: #02203c;
     color: white;
 }
+
+
 
 

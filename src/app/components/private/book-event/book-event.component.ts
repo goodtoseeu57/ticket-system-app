@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-event.component.scss']
 })
 export class BookEventComponent implements OnInit {
-
+    selected = 'Rock';
   constructor() { }
 
   ngOnInit(): void {

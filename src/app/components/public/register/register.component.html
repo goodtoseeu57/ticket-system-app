@@ -1,8 +1,8 @@
-<mat-card>
-    <p style="text-align: center">
+<mat-toolbar class="unique-toolbar-component">
+
     Register Component
-    </p>
-</mat-card>
+
+</mat-toolbar>
 
 <form class="form" [formGroup]="registerForm">
 
@@ -23,9 +23,18 @@
     </mat-form-field>
 
 
+<!--    <mat-form-field appearance="fill">-->
+<!--        <mat-label> Role </mat-label>-->
+<!--        <input matInput  formControlName="role" required>-->
+<!--    </mat-form-field>-->
+
     <mat-form-field appearance="fill">
-        <mat-label> Role </mat-label>
-        <input matInput  formControlName="role" required>
+        <mat-label>Select your role</mat-label>
+        <mat-select formControlName="role" required>
+            <mat-option value="Admin"> Creator</mat-option>
+            <mat-option value="Customer"> Customer</mat-option>
+        </mat-select>
+
     </mat-form-field>
 
 

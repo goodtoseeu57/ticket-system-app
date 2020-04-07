@@ -27,6 +27,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu';
 import { ProfileComponent } from './components/private/profile/profile.component';
 import { BookEventComponent } from './components/private/book-event/book-event.component';
+import {MatSelectModule} from '@angular/material/select';
+import { CreatorsAndEventsComponent } from './components/private/creators-and-events/creators-and-events.component';
 
 
 @NgModule({
@@ -39,13 +41,14 @@ import { BookEventComponent } from './components/private/book-event/book-event.c
     PrivateComponent,
     BookTicketComponent,
     ProfileComponent,
-    BookEventComponent
+    BookEventComponent,
+    CreatorsAndEventsComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule,
-        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule, MatMenuModule, FormsModule
+        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule, MatMenuModule, FormsModule, MatSelectModule
     ],
   providers: [],
   bootstrap: [AppComponent]

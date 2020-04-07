@@ -1,1 +1,56 @@
-<p>book-event works!</p>
+<mat-toolbar class="unique-toolbar-component">
+    Create your stunning event
+</mat-toolbar>
+
+<mat-card>
+<div class="event-info">
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Location</mat-label>
+            <input matInput placeholder="Placeholder">
+
+            <mat-hint> Email</mat-hint>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field>
+            <mat-label>Select an option</mat-label>
+            <mat-select [(value)]="selected">
+                <mat-option>None</mat-option>
+                <mat-option value="Rock">Rock</mat-option>
+                <mat-option value="Pop">Pop</mat-option>
+            </mat-select>
+
+            <mat-hint> Email</mat-hint>
+        </mat-form-field>
+
+    </p>
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Available tickets</mat-label>
+            <input matInput placeholder="Placeholder">
+
+            <mat-hint> </mat-hint>
+        </mat-form-field>
+    </p>
+
+    <p>
+    <mat-form-field appearance="legacy">
+        <mat-label>Choose a date</mat-label>
+        <input matInput  [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    </p>
+
+
+    <mat-card-footer>
+        <button mat-raised-button class="create-event-button"> Create an event</button>
+    </mat-card-footer>
+</div>
+
+</mat-card>
+
+
+

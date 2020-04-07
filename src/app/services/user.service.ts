@@ -13,7 +13,7 @@ export class UserService {
     constructor(private apiService: ApiService) {
     }
 
-    getCurrentUser(id) {
+    async getCurrentUser(id) {
         return new Promise((resolve, reject) => {
             this.apiService.get(`user/${id}`).then((res) => {
                     console.log(res);
@@ -30,5 +30,16 @@ export class UserService {
 
     getUserFirstLetter(name: string) {
         return name.substring(0 , 1).toUpperCase();
+    }
+
+    getAllUsers() {
+        return new Promise((resolve, reject) => {
+            this.apiService.get(`users`).then((res) => {
+                resolve(res);
+            }, (err) => {
+                reject(err);
+            });
+
+        });
     }
 }
