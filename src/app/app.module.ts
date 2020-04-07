@@ -29,6 +29,10 @@ import { ProfileComponent } from './components/private/profile/profile.component
 import { BookEventComponent } from './components/private/book-event/book-event.component';
 import {MatSelectModule} from '@angular/material/select';
 import { CreatorsAndEventsComponent } from './components/private/creators-and-events/creators-and-events.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { EventDetailsComponent } from './components/private/event-details/event-details.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -42,13 +46,14 @@ import { CreatorsAndEventsComponent } from './components/private/creators-and-ev
     BookTicketComponent,
     ProfileComponent,
     BookEventComponent,
-    CreatorsAndEventsComponent
+    CreatorsAndEventsComponent,
+    EventDetailsComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule,
-        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule, MatMenuModule, FormsModule, MatSelectModule
+        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule, MatMenuModule, FormsModule, MatSelectModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule
     ],
   providers: [],
   bootstrap: [AppComponent]

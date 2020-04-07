@@ -3,6 +3,9 @@
     <span>Book ticket</span>
     <span class="example-fill-remaining-space"></span>
 
+    <span routerLink="/private/creators-events"> Creators and events </span>
+    <span class="example-fill-remaining-space"></span>
+
     <div class="numberCircle" [matMenuTriggerFor]="menu"> {{firstLetter}}
             <mat-menu class="menu"  #menu="matMenu">
                 <button mat-menu-item (click)="getCurrentUser()"> check current user </button>
@@ -27,6 +30,10 @@
         <mat-divider></mat-divider>
         <mat-list-item  routerLink="/private/book-event">
             Book an event
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item  routerLink="/private/creators-events">
+            Creators and events
         </mat-list-item>
         </mat-list>
     </mat-sidenav>
