@@ -1,0 +1,82 @@
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+
+.mat-sidenav {
+    width: 20%;
+    background-color: #02203c;
+
+    mat-list-item {
+        color: white;
+        cursor: pointer;
+    }
+
+    mat-list-item:hover {
+        background-color: white;
+        color: #02203c;
+
+    }
+
+    mat-divider {
+        background-color: white;
+    }
+
+}
+
+
+
+.numberCircle {
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid #666;
+    background-color: white;
+    color: #02203c;
+    cursor: pointer;
+
+   .mat-menu-content {
+       width: 272px;
+   }
+}
+
+.header-toolbar {
+    background-color: #02203c;
+    color: white;
+    position: sticky;
+}
+
+.user-info {
+    display: inline-block;
+    color: #fff!important;
+    font-size: 14px;
+    text-decoration: none!important;
+    font-family: Open Sans,Helvetica,Arial,sans-serif;
+}
+
+.numberCircle:hover .user-info {
+    background-color: #02203c;
+    color: white;
+}
+
+span {
+    cursor: pointer;
+    font-family: "Arial Black";
+    font-size: 18px;
+    font-family: "Droid Sans Mono Dotted";
+
+}
+
+span:hover {
+    color: white;
+    display: block;
+    border-bottom: 1px solid #fff;
+
+
+
+}
+
+
+

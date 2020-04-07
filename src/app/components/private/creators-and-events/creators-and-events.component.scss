@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+table {
+    width: 52rem;
+    margin: 0 0 0 0;
+
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+
+}
+
+
+tr.element-row:not(.example-expanded-row):hover {
+    cursor: pointer;
+    color: #1a2326;
+    text-decoration: none;
+    border-color: #2b85e7;
+    border-radius: 4px;
+    box-shadow: 0 8px 8px rgba(1,67,163,.24), 0 0 8px rgba(1,67,163,.12), 0 6px 18px rgba(43,133,231,.12);
+    transform: translateY(-2px);
+}
+
+tr.element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    mat-card {
+        width: 300px;
+        height: 300px;
+        flex: 0 0 35%;
+        margin: 5px;
+        color: #02203c;
+        background-color: white;
+        min-width: 300px;
+        min-height: 300px;
+        cursor: pointer;
+    }
+}
