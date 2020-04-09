@@ -13,7 +13,11 @@ import {EventService} from '../../../services/event.service';
 
 
 export class CreatorsAndEventsComponent implements OnInit {
-    displayedColumns: string[] = ['first_name', 'last_name', 'email', 'role'];
+    displayedColumns: string[] = ['first_name', 'last_name', 'email', 'role' , 'actions' , 'settings'];
+    filterOptions = [
+        {value: 'Admin', viewValue: 'Creator'},
+        {value: 'Customer', viewValue: 'Customer'}
+    ];
     dataSource: any = new MatTableDataSource();
     users: any;
     events: any;
@@ -26,7 +30,7 @@ export class CreatorsAndEventsComponent implements OnInit {
   ngOnInit(): void {
       this.getAllUsers();
       this.dataSource.paginator = this.paginator;
-      this.getAllEvent();
+      this.getAllEvents();
   }
 
     getAllUsers() {
@@ -38,11 +42,31 @@ export class CreatorsAndEventsComponent implements OnInit {
     });
 }
 
-    getAllEvent() {
+    getAllEvents() {
       this.eventService.getEvents().then((res) => {
          console.log(res);
          this.events = res;
       });
     }
+
+    delete(user) {
+        console.log(user._id);
+        this.userService.deleteUser(user._id).then((res) => {
+           console.log(res);
+        });
+
+    }
+
+    edit(user) {
+      console.log(user._id);
+    }
+
+    buyTicket(event) {
+      console.log(event);
+      this.eventService.buyTicketEvent(event).then((res) => {
+         console.log(res);
+      });
+    }
+
 
 }

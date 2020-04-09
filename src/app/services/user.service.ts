@@ -42,4 +42,24 @@ export class UserService {
 
         });
     }
+
+    updateUser(data) {
+        return new Promise((resolve, reject) => {
+           this.apiService.put('user/update' , data).then((res) => {
+               resolve(res);
+           } , (err) => {
+               reject(err);
+        });
+    });
+    }
+
+    deleteUser(id) {
+        return new Promise((resolve, reject) => {
+            this.apiService.delete(`user/delete/${id}`).then((res) => {
+                resolve(res);
+            } , (err) => {
+                reject(err);
+            });
+        });
+    }
 }

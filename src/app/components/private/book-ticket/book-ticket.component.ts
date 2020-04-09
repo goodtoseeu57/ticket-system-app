@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {EventService} from '../../../services/event.service';
 
 @Component({
   selector: 'app-book-ticket',
@@ -6,12 +7,22 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./book-ticket.component.scss']
 })
 export class BookTicketComponent implements OnInit {
-    @Input() public user: any;
-  constructor() { }
+
+    events: any;
+
+  constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
-      console.log(this.user);
-
+      this.eventService.getEvents().then((res) => {
+        console.log(res);
+        this.events = res;
+      });
   }
+
+  buyTicket(eventId) {
+      console.log('buy ticket');
+      console.log(eventId);
+  }
+
 
 }

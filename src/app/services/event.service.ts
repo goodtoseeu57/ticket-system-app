@@ -38,4 +38,14 @@ export class EventService {
          });
       });
   }
+
+    buyTicketEvent(data) {
+        return new Promise((resolve, reject) => {
+            this.apiService.post('event/buy-ticket' , data).then((res) => {
+                resolve(res);
+            } , (err) => {
+                reject(err);
+            });
+        });
+    }
 }

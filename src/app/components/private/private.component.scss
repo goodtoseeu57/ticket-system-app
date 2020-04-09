@@ -10,6 +10,8 @@
     mat-list-item {
         color: white;
         cursor: pointer;
+        height: 70px;
+        font-size: 20px;
     }
 
     mat-list-item:hover {
@@ -19,7 +21,7 @@
     }
 
     mat-divider {
-        background-color: white;
+        background-color: darkgrey;
     }
 
 }
