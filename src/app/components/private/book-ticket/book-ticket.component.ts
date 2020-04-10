@@ -19,9 +19,11 @@ export class BookTicketComponent implements OnInit {
       });
   }
 
-  buyTicket(eventId) {
-      console.log('buy ticket');
-      console.log(eventId);
+  buyTicket(event) {
+      console.log(event);
+      this.eventService.buyTicketEvent(event).then((res) => {
+          console.log(res);
+      });
   }
 
 

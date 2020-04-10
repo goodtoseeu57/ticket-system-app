@@ -10,13 +10,17 @@
     mat-list-item {
         color: white;
         cursor: pointer;
-        height: 70px;
-        font-size: 20px;
+        height: 50px;
+        font-size: 16px;
     }
 
     mat-list-item:hover {
         background-color: white;
         color: #02203c;
+
+    }
+
+    .arrow_forward {
 
     }
 
@@ -48,6 +52,23 @@
     background-color: #02203c;
     color: white;
     position: sticky;
+    height: 63px;
+    .link {
+        margin: 0 10px;
+        border-bottom: 4px solid transparent;
+        padding: 35px 0 25px;
+    }
+
+    .link:hover {
+        color: #fc0;
+        border-bottom-color: #fc0;
+    }
+
+    .album {
+        color: #626ee3;
+        height: 12px;
+        width: 13px;
+    }
 }
 
 .user-info {
@@ -65,18 +86,13 @@
 
 span {
     cursor: pointer;
-    font-family: "Arial Black";
-    font-size: 18px;
-    font-family: "Droid Sans Mono Dotted";
+    font: 500 14px/20px Google Sans,Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+
 
 }
 
 span:hover {
-    color: white;
-    display: block;
-    border-bottom: 1px solid #fff;
-
-
+    border-radius: 3px 3px 0 0;
 
 }
 

@@ -48,3 +48,37 @@
 .profile-form {
     margin-top: 8rem;
 }
+
+mat-grid-list {
+    margin: 60px 40px 40px;
+    mat-grid-tile {
+        background-color: #626ee3;
+    }
+}
+
+.title-purchased-tickets {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.go-to-events {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    button {
+        margin-top: 20px;
+        width: 200px;
+        background-color: #626ee3;
+        color: white;
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+footer {
+    background-color: #626ee3;
+    height: 200px
+}
+
+

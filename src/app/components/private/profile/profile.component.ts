@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../services/user.service';
 import {User} from '../../../models/User';
+import {EventService} from '../../../services/event.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-profile',
@@ -11,16 +13,21 @@ export class ProfileComponent implements OnInit {
     public user: User;
     firstLetter: string;
     enableEditing = false;
+    tickets: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService , private eventService: EventService , private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-     this.getCurrentUser();
+      this.getTicketsOfUser();
+      this.getCurrentUser();
   }
 
-    async getCurrentUser() {
+     getCurrentUser() {
         const id = localStorage.getItem('id');
-        this.user = await this.userService.getCurrentUser(id);
+        this.userService.getCurrentUser(id).then((res: User) => {
+           console.log(res);
+           this.user = res;
+        });
         this.firstLetter = this.user.first_name.substring(0, 1).toUpperCase();
     }
 
@@ -29,13 +36,27 @@ export class ProfileComponent implements OnInit {
     }
 
   editProfile() {
-
-      const user = new User(this.user._id ,  this.user.first_name , this.user.last_name , this.user.email , this.user.role);
+      const user = new User(this.user._id ,  this.user.first_name , this.user.last_name , this.user.email , this.user.role , this.user.tickets);
       console.log(user);
       this.userService.updateUser(user).then((res) => {
           console.log(res);
       });
   }
+
+  getTicketsOfUser() {
+      this.eventService.getPurchasedTicketsOfUser().then((res) => {
+        console.log(res);
+        this.tickets = res;
+        console.log(this.tickets.lenght);
+      });
+
+  }
+
+  openSnackBar(message: string , data: string) {
+      // this.snackBar.open({});
+
+  }
+
 
 
 

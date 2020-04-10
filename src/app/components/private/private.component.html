@@ -1,9 +1,9 @@
 <mat-toolbar class="header-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <span>Book ticket</span>
-    <span class="example-fill-remaining-space"></span>
-
-    <span routerLink="/private/creators-events"> Creators and events </span>
+    <span class="link" routerLink="/private/profile"> Profile</span>
+    <span class="link" routerLink="/private/book-ticket"> Book a ticket </span>
+    <span class="link" routerLink="/private/book-event"> Book an event </span>
+    <span class="link" routerLink="/private/creators-events"> Creators and events </span>
     <span class="example-fill-remaining-space"></span>
 
     <div class="numberCircle" [matMenuTriggerFor]="menu"> {{firstLetter}}
@@ -21,19 +21,28 @@
     <mat-sidenav #snav mode="side">
     <mat-list>
         <mat-list-item routerLink="/private/profile">
+
         Profile
+            <span class="example-fill-remaining-space"></span>
+            <mat-icon class="arrow_forward">arrow_forward</mat-icon>
         </mat-list-item>
         <mat-divider></mat-divider>
     <mat-list-item routerLink="/private/book-ticket">
             Book a ticket
+        <span class="example-fill-remaining-space"></span>
+        <mat-icon class="arrow_forward">arrow_forward</mat-icon>
     </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item  routerLink="/private/book-event">
             Book an event
+            <span class="example-fill-remaining-space"></span>
+            <mat-icon class="arrow_forward">arrow_forward</mat-icon>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item  routerLink="/private/creators-events">
             Creators and events
+            <span class="example-fill-remaining-space"></span>
+            <mat-icon class="arrow_forward">arrow_forward</mat-icon>
         </mat-list-item>
         </mat-list>
     </mat-sidenav>

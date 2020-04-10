@@ -3,6 +3,8 @@ import {UserService} from '../../../services/user.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {EventService} from '../../../services/event.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 
 @Component({
@@ -25,7 +27,7 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private userService: UserService , private eventService: EventService) { }
+  constructor(private userService: UserService , private eventService: EventService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
       this.getAllUsers();
@@ -66,6 +68,16 @@ export class CreatorsAndEventsComponent implements OnInit {
       this.eventService.buyTicketEvent(event).then((res) => {
          console.log(res);
       });
+    }
+
+    editUser(user) {
+      this.snackBar.open(`this the user with name ${user.first_name}` , '' , {
+          duration: 3000,
+          verticalPosition: 'top',
+          horizontalPosition: 'center',
+          panelClass: ['successCssSnackBar']
+          }
+      );
     }
 
 

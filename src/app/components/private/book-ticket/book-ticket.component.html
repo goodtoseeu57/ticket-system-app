@@ -12,33 +12,28 @@
 </div>
 
 <div class="cards-container">
-    <mat-card *ngFor="let event of events; index as i;">
-        <mat-card-title> {{event.location}}</mat-card-title>
-        <mat-card-subtitle> {{event.creator}} </mat-card-subtitle>
+    <mat-card *ngFor="let event of events">
+        <mat-card-title> <mat-chip> Creator {{event.creator}} </mat-chip> </mat-card-title>
+        <mat-card-subtitle> Date of the event {{event.date | date: 'medium'}} </mat-card-subtitle>
         <mat-card-content>
             <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
+                {{event.location}}  is a port city situated on the south coast of Devon, England, approximately 37 miles (60 km) south-west of Exeter and 190 miles (310 km)
+                west-south-west of London.
+                Enclosing the city are the mouths of the river Plym and river Tamar, which are naturally incorporated into Plymouth Sound to form a boundary with Cornwall.
             </p>
         </mat-card-content>
 
-            <mat-chip-list>
-            <mat-chip color="accent" selected>Available tickets {{event.tickets}}</mat-chip>
-
-            </mat-chip-list>
-
-        <mat-card-actions>
-            <button class="buy-button" mat-raised-button (click)="buyTicket(event._id)"> Buy now</button>
-        </mat-card-actions>
-
-
-
+        <mat-chip-list>
+            <mat-chip color="warn">
+                {{event.location}}
+            </mat-chip>
+            <mat-chip color="primary"> Available tickets {{event.tickets}} </mat-chip>
+            <button mat-raised-button class="detail-button" routerLink="/private/event-details/{{event._id}}">Details</button>
+            <button mat-raised-button class="buy-button" (click)="buyTicket(event)">Buy</button>
+        </mat-chip-list>
 
 
     </mat-card>
-
-
 
 </div>
 
