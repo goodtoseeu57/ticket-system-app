@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from '../../../services/api.service';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -15,9 +16,10 @@ export class RegisterComponent implements OnInit {
         email: new FormControl('' , Validators.required),
         role: new FormControl('' , Validators.required),
         password: new FormControl('' , Validators.required),
-    })
+    });
 
-  constructor(private formBuilder: FormBuilder , private apiService: ApiService , private router: Router ) { }
+  constructor(private formBuilder: FormBuilder , private apiService: ApiService ,
+              private router: Router , private snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
         this.registerForm = this.formBuilder.group({
@@ -31,10 +33,23 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
         console.log(this.registerForm.value);
-        this.apiService.post('register' , this.registerForm.value).then((res) => {
+        this.apiService.post('register' , this.registerForm.value).then((res: any) => {
            console.log(res);
            this.router.navigateByUrl('/public/login');
+           this.openSnackBar( res.data , 'successCssSnackBar');
+        } , (error) => {
+           this.openSnackBar(error.error.errorMessage , 'failureCssSnackBar');
         });
 
+    }
+
+    openSnackBar(message , cssClass) {
+        this.snackBar.open( message , '' , {
+                duration: 3000,
+                verticalPosition: 'top',
+                horizontalPosition: 'center',
+                panelClass: [cssClass]
+            }
+        );
     }
 }

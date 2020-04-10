@@ -55,21 +55,18 @@
 
 <mat-divider></mat-divider>
 
+<div class="go-to-events">
+    <button mat-raised-button routerLink="/private/creators-events">Go to events session</button>
+</div>
+
 <div class="title-purchased-tickets">
-    <p *ngIf="tickets.lenght">
+    <p *ngIf="!noTicketsAvailable">
       Your purchased tickets
     </p>
-    <p *ngIf="!tickets.lenght">
+    <p *ngIf="noTicketsAvailable">
         Your haven't purchased tickets yet
     </p>
 </div>
-
-<div class="go-to-events">
-<button mat-raised-button>Go to events session</button>
-
-</div>
-
-
 
 
 <div *ngIf="tickets">

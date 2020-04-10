@@ -17,7 +17,7 @@ import {PresentationLandingPageComponent} from './components/public/presentation
 const routes: Routes = [
     {path: '' , redirectTo: 'private/book-ticket' , pathMatch: 'full' },
     {path: 'public' , component: PublicComponent , children: [
-            {path: 'presentation' , component: PresentationLandingPageComponent},
+        {path: 'presentation' , component: PresentationLandingPageComponent},
         {path: 'register' , component: RegisterComponent} ,
         {path: 'login' , component: LoginComponent} ,
         {path: 'not-found' , component: NotFoundComponent} ,
@@ -26,7 +26,7 @@ const routes: Routes = [
             {path: 'book-ticket' , component: BookTicketComponent} ,
             {path: 'profile' , component: ProfileComponent} ,
             {path: 'book-event' , component: BookEventComponent} ,
-            {path: 'creators-events' , component: CreatorsAndEventsComponent}  ,
+            {path: 'creators-events' , component: CreatorsAndEventsComponent} ,
             {path: 'event-details/:id' , component: EventDetailsComponent}
         ] },
 

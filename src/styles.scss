@@ -44,9 +44,17 @@ footer {
 }
 
 .successCssSnackBar {
-    background-color: #28a745;;
+    background-color: #28a745;
     color: white;
-    text-align: center !important;
+    margin: auto;
+    text-align: center;
+}
+
+.failureCssSnackBar {
+    background-color: darkred;
+    color: white;
+    margin: auto;
+    text-align: center;
 }
 
 

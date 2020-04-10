@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
     firstLetter: string;
     enableEditing = false;
     tickets: any;
+    noTicketsAvailable: boolean;
 
   constructor(private userService: UserService , private eventService: EventService , private snackBar: MatSnackBar) { }
 
@@ -47,8 +48,14 @@ export class ProfileComponent implements OnInit {
       this.eventService.getPurchasedTicketsOfUser().then((res) => {
         console.log(res);
         this.tickets = res;
-        console.log(this.tickets.lenght);
-      });
+        if (this.tickets.length > 0) {
+            this.noTicketsAvailable = false;
+        } else {
+            this.noTicketsAvailable = true;
+        }
+      } , (err) => {
+         this.noTicketsAvailable =  true;
+          });
 
   }
 

@@ -55,8 +55,10 @@ export class CreatorsAndEventsComponent implements OnInit {
         console.log(user._id);
         this.userService.deleteUser(user._id).then((res) => {
            console.log(res);
-        });
-
+        } , (error) => {
+            console.log(error.error);
+            this.openSnackBar(error.error.errorMessage , 'failureCssSnackBar');
+            });
     }
 
     edit(user) {
@@ -70,14 +72,19 @@ export class CreatorsAndEventsComponent implements OnInit {
       });
     }
 
-    editUser(user) {
-      this.snackBar.open(`this the user with name ${user.first_name}` , '' , {
+    openSnackBar(message , cssClass) {
+      this.snackBar.open( message , '' , {
           duration: 3000,
           verticalPosition: 'top',
           horizontalPosition: 'center',
-          panelClass: ['successCssSnackBar']
+          panelClass: [cssClass]
           }
       );
+    }
+
+    editUser(user) {
+      console.log(user);
+
     }
 
 

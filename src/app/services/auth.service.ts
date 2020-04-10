@@ -17,7 +17,7 @@ export class AuthService {
 
   login(credentials) {
       return new Promise((resolve , reject) => {
-         this.apiService.post('login' , credentials).then((res) => {
+         this.apiService.login('login' , credentials).then((res: any) => {
             console.log(res);
             localStorage.setItem('accessToken' , res.accessToken);
             localStorage.setItem('refreshToken' , res.refreshToken);
