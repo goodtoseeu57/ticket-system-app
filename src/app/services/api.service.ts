@@ -34,7 +34,6 @@ export class ApiService {
                          console.log(response);
                          resolve(response);
                      }).catch((error) => {
-                         localStorage.clear();
                          this.router.navigate(['public/login']);
                          console.log(error);
                      });
@@ -60,7 +59,6 @@ export class ApiService {
                          resolve(response);
                      }).catch((error) => {
                          console.log(error);
-                         localStorage.clear();
                          this.router.navigateByUrl('public/login');
                      });
                  });
@@ -86,11 +84,53 @@ export class ApiService {
 
 
 
-  put() {
+  put(route: any , data?: any , retryCount: number = 0 ) {
+      const options = this.addHeaders(data, 'put');
+      return new Promise((resolve , reject) => {
+          this.http.put(this.apiUrl + route , data , options).pipe(take(1)).subscribe((response: any) => {
+              console.log(response);
+              resolve(response);
+          } , (err) => {
+              if (err.status === 401 && retryCount === 0) {
+                  retryCount += 1;
+                  this.refresh().then(() => {
+                      this.put(route, data , retryCount).then((response) => {
+                          resolve(response);
+                      }).catch((error) => {
+                          console.log(error);
+                          this.router.navigateByUrl('public/login');
+                      });
+                  });
+              } else {
+                  reject(err);
+              }
+          });
+      });
 
   }
 
-  delete() {
+  delete(route: any , params?: any, retryCount: number = 0) {
+      const options = this.addHeaders( {}, 'delete');
+      return new Promise((resolve , reject) => {
+          this.http.delete(this.apiUrl + route  , options).pipe(take(1)).subscribe((response: any) => {
+              console.log(response);
+              resolve(response);
+          } , (err) => {
+              if (err.status === 401 && retryCount === 0) {
+                  retryCount += 1;
+                  this.refresh().then(() => {
+                      this.delete(route , retryCount).then((response) => {
+                          resolve(response);
+                      }).catch((error) => {
+                          console.log(error);
+                          this.router.navigateByUrl('public/login');
+                      });
+                  });
+              } else {
+                  reject(err);
+              }
+          });
+      });
 
   }
 
@@ -119,7 +159,7 @@ refresh() {
 
         if (reqType.includes('get') || reqType.includes('delete')) {
             httpOptions = {
-                params: params ,
+                params ,
                 headers: new HttpHeaders({
                     'Content-Type': params && params.contentType ? params.contentType : 'application/json',
                     Authorization: 'Token ' + (localStorage.accessToken ? localStorage.accessToken : ''),

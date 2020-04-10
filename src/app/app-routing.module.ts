@@ -10,19 +10,27 @@ import {ProfileComponent} from './components/private/profile/profile.component';
 import {BookEventComponent} from './components/private/book-event/book-event.component';
 import {CreatorsAndEventsComponent} from './components/private/creators-and-events/creators-and-events.component';
 import {EventDetailsComponent} from './components/private/event-details/event-details.component';
+import {NotFoundComponent} from './components/public/not-found/not-found.component';
+import {PresentationLandingPageComponent} from './components/public/presentation-landing-page/presentation-landing-page.component';
 
 
-const routes: Routes = [ {path: 'public' , component: PublicComponent , children: [
+const routes: Routes = [
+    {path: '' , redirectTo: 'private/book-ticket' , pathMatch: 'full' },
+    {path: 'public' , component: PublicComponent , children: [
+        {path: 'presentation' , component: PresentationLandingPageComponent},
         {path: 'register' , component: RegisterComponent} ,
-        {path: 'login' , component: LoginComponent}
+        {path: 'login' , component: LoginComponent} ,
+        {path: 'not-found' , component: NotFoundComponent} ,
     ]} ,
     {path: 'private', component: PrivateComponent , canActivateChild: [AuthGuard]  , children: [
             {path: 'book-ticket' , component: BookTicketComponent} ,
             {path: 'profile' , component: ProfileComponent} ,
             {path: 'book-event' , component: BookEventComponent} ,
-            {path: 'creators-events' , component: CreatorsAndEventsComponent}  ,
+            {path: 'creators-events' , component: CreatorsAndEventsComponent} ,
             {path: 'event-details/:id' , component: EventDetailsComponent}
-        ] }
+        ] },
+
+    {path: '**' , component: NotFoundComponent}
  ];
 
 @NgModule({

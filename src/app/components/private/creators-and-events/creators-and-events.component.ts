@@ -3,6 +3,8 @@ import {UserService} from '../../../services/user.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {EventService} from '../../../services/event.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 
 @Component({
@@ -13,7 +15,11 @@ import {EventService} from '../../../services/event.service';
 
 
 export class CreatorsAndEventsComponent implements OnInit {
-    displayedColumns: string[] = ['first_name', 'last_name', 'email', 'role'];
+    displayedColumns: string[] = ['first_name', 'last_name', 'email', 'role' , 'actions' , 'settings'];
+    filterOptions = [
+        {value: 'Admin', viewValue: 'Creator'},
+        {value: 'Customer', viewValue: 'Customer'}
+    ];
     dataSource: any = new MatTableDataSource();
     users: any;
     events: any;
@@ -21,12 +27,12 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private userService: UserService , private eventService: EventService) { }
+  constructor(private userService: UserService , private eventService: EventService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
       this.getAllUsers();
       this.dataSource.paginator = this.paginator;
-      this.getAllEvent();
+      this.getAllEvents();
   }
 
     getAllUsers() {
@@ -38,11 +44,48 @@ export class CreatorsAndEventsComponent implements OnInit {
     });
 }
 
-    getAllEvent() {
+    getAllEvents() {
       this.eventService.getEvents().then((res) => {
          console.log(res);
          this.events = res;
       });
     }
+
+    delete(user) {
+        console.log(user._id);
+        this.userService.deleteUser(user._id).then((res) => {
+           console.log(res);
+        } , (error) => {
+            console.log(error.error);
+            this.openSnackBar(error.error.errorMessage , 'failureCssSnackBar');
+            });
+    }
+
+    edit(user) {
+      console.log(user._id);
+    }
+
+    buyTicket(event) {
+      console.log(event);
+      this.eventService.buyTicketEvent(event).then((res) => {
+         console.log(res);
+      });
+    }
+
+    openSnackBar(message , cssClass) {
+      this.snackBar.open( message , '' , {
+          duration: 3000,
+          verticalPosition: 'top',
+          horizontalPosition: 'center',
+          panelClass: [cssClass]
+          }
+      );
+    }
+
+    editUser(user) {
+      console.log(user);
+
+    }
+
 
 }

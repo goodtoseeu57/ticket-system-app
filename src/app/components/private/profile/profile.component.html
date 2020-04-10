@@ -1,71 +1,91 @@
-<mat-toolbar class="unique-toolbar-component" >
+<mat-toolbar class="unique-toolbar-component">
     Profile
 </mat-toolbar>
 
-<div class="profile-container">
-<mat-card class="example-card">
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"> {{firstLetter}} </div>
-        <mat-card-title> {{user.first_name}}</mat-card-title>
-        <mat-card-subtitle> {{ user.email}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://upload.wikimedia.org/wikipedia/en/4/40/Star_Wars_Phantom_Menace_poster.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-        <p *ngIf="user.role === 'superAdmin'">
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-        </p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button> {{user.role}} </button>
-        <button mat-button>SHARE</button>
-    </mat-card-actions>
-</mat-card>
 
-    <div class="profile-info">
-    <p>
+    <div class="profile-container">
+
+        <div class="profile-form">
+        <p>
         <mat-form-field appearance="legacy">
-            <mat-label>Legacy form field</mat-label>
-            <input matInput placeholder="Placeholder" [(ngModel)]="user.email">
+            <mat-label>First name</mat-label>
+            <input matInput placeholder="First namer" [(ngModel)]="user.first_name">
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <mat-hint> Email</mat-hint>
+            <mat-hint> First name</mat-hint>
         </mat-form-field>
     </p>
 
         <p>
             <mat-form-field appearance="legacy">
-                <mat-label>Legacy form field</mat-label>
-                <input matInput placeholder="Placeholder" [(ngModel)]="user.first_name">
+                <mat-label>Last name</mat-label>
+                <input matInput placeholder="Last name" [(ngModel)]="user.last_name">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                <mat-hint> Email</mat-hint>
+                <mat-hint> Last name</mat-hint>
             </mat-form-field>
         </p>
         <p>
             <mat-form-field appearance="legacy">
-                <mat-label>Legacy form field</mat-label>
-                <input matInput placeholder="Placeholder" [(ngModel)]="user.role">
+                <mat-label>Role</mat-label>
+                <input matInput placeholder="Role" [(ngModel)]="user.role" disabled>
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                <mat-hint> Email</mat-hint>
+                <mat-hint> Role</mat-hint>
             </mat-form-field>
         </p>
 
         <p>
             <mat-form-field appearance="legacy">
-                <mat-label>Legacy form field</mat-label>
-                <input matInput placeholder="Placeholder" [(ngModel)]="user.email">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" [(ngModel)]="user.email" disabled>
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                 <mat-hint> Email</mat-hint>
             </mat-form-field>
         </p>
 
+        </div>
     </div>
+
+
+
+<div class="bottom-buttons">
+<button mat-flat-button  (click)="editProfile()">
+    Edit your profile
+</button>
 
 </div>
 
 <mat-divider></mat-divider>
-<div class="bottom-buttons">
-<button mat-flat-button>
-    Edit your profile
-</button>
+
+<div class="go-to-events">
+    <button mat-raised-button routerLink="/private/creators-events">Go to events session</button>
 </div>
+
+<div class="title-purchased-tickets">
+    <p *ngIf="!noTicketsAvailable">
+      Your purchased tickets
+    </p>
+    <p *ngIf="noTicketsAvailable">
+        Your haven't purchased tickets yet
+    </p>
+</div>
+
+
+<div *ngIf="tickets">
+<mat-grid-list cols="3" rowHeight="7:3" [gutterSize]="'15px'">
+    <mat-grid-tile *ngFor="let event of tickets">
+    <mat-grid-tile-header>
+       {{event.location}}
+    </mat-grid-tile-header>
+        <mat-chip-list aria-label="Fish selection">
+            <mat-chip color="accent" selected> Available tickets at the moment: {{event.tickets}} </mat-chip>
+        </mat-chip-list>
+        <mat-grid-tile-footer>
+           Date of the concert {{event.date |  date:'medium'}}
+        </mat-grid-tile-footer>
+    </mat-grid-tile>
+</mat-grid-list>
+</div>
+
+<footer class="footer">
+
+
+</footer>

@@ -1,5 +1,8 @@
 .container {
-
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -20,6 +23,28 @@
         margin-left: 20.25rem;
 
     }
+}
+
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+span {
+    cursor: pointer;
+}
+
+
+
+.logo {
+
+    border-radius: 50%;
+    margin-right: 100px;
+    margin-top: 50px;
+
+}
+
+img {
+    border-radius: 21%;
 }
 
 

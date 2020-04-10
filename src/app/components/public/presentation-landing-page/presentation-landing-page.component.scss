@@ -1,0 +1,172 @@
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #eee;
+}
+
+.header {
+    height: 100vh;
+    background-image:
+        //linear-gradient(to right bottom,
+        //    rgba(76, 216, 255, 0.8),
+        //    rgba(30, 108, 217, 0.8)),
+        url('src/assets/concert2.png');
+    // https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg
+
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.brand-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.brand { font-size: 20px; }
+
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;
+    margin-bottom: 30px;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 7.4px;
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+    font-size: 14px;
+}
+
+mat-toolbar {
+    background: transparent;
+    color: white;
+}
+
+
+body {
+    align-items: center;
+    background: #E3E3E3;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+@mixin white-gradient {
+    background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+
+$animationSpeed: 30s;
+
+// Animation
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 7))}
+}
+
+
+// Styling
+.slider {
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+    height: 200px;
+    margin: auto;
+    overflow:hidden;
+    position: relative;
+    width: 960px;
+
+    &::before,
+    &::after {
+        @include white-gradient;
+        content: "";
+        height: 100px;
+        position: absolute;
+        width: 200px;
+        z-index: 2;
+    }
+
+    &::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+    }
+
+    &::before {
+        left: 0;
+        top: 0;
+    }
+
+    .slide-track {
+        animation: scroll $animationSpeed linear infinite;
+        display: flex;
+        width: calc(250px * 14);
+    }
+
+    .slide {
+        height: 100px;
+        width: 350px;
+    }
+}
+
+.fill-space {
+    flex: 1 1 auto;
+}
+
+.option-link {
+    margin-left: 34px;
+    cursor: pointer;
+    font: 500 16px/20px Google Sans,Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+}
+
+h4, p {
+    color: #445d6e;
+}

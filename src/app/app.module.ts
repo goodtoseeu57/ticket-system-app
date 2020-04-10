@@ -33,6 +33,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { EventDetailsComponent } from './components/private/event-details/event-details.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NotFoundComponent } from './components/public/not-found/not-found.component';
+import { UserActionsComponent } from './components/private/user-actions/user-actions.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -47,13 +50,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ProfileComponent,
     BookEventComponent,
     CreatorsAndEventsComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    NotFoundComponent,
+    UserActionsComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule,
-        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule, MatMenuModule, FormsModule, MatSelectModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule
+        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatChipsModule, MatDatepickerModule,
+        MatNativeDateModule, MatGridListModule, MatMenuModule, FormsModule, MatSelectModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule, MatSnackBarModule
     ],
   providers: [],
   bootstrap: [AppComponent]
