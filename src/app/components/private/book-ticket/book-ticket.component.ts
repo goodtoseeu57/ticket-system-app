@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {EventService} from '../../../services/event.service';
+import * as mapboxgl from 'mapbox-gl';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-book-ticket',
@@ -7,6 +9,8 @@ import {EventService} from '../../../services/event.service';
   styleUrls: ['./book-ticket.component.scss']
 })
 export class BookTicketComponent implements OnInit {
+
+
 
     events: any;
 
@@ -17,6 +21,9 @@ export class BookTicketComponent implements OnInit {
         console.log(res);
         this.events = res;
       });
+
+
+
   }
 
   buyTicket(event) {

@@ -4,7 +4,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {EventService} from '../../../services/event.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-
+import {MatDialog } from '@angular/material/dialog';
+import {UserActionsComponent} from '../user-actions/user-actions.component';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private userService: UserService , private eventService: EventService, private snackBar: MatSnackBar) { }
+  constructor(private userService: UserService , private eventService: EventService,
+              private snackBar: MatSnackBar , public dialog: MatDialog) { }
 
   ngOnInit(): void {
       this.getAllUsers();
@@ -53,8 +55,9 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     delete(user) {
         console.log(user._id);
-        this.userService.deleteUser(user._id).then((res) => {
+        this.userService.deleteUser(user._id).then((res: any) => {
            console.log(res);
+           this.openSnackBar( res.data , 'successCssSnackBar');
         } , (error) => {
             console.log(error.error);
             this.openSnackBar(error.error.errorMessage , 'failureCssSnackBar');
@@ -67,8 +70,12 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     buyTicket(event) {
       console.log(event);
-      this.eventService.buyTicketEvent(event).then((res) => {
-         console.log(res);
+      this.eventService.buyTicketEvent(event).then((res: any) => {
+         console.log(res.errorMessage);
+         this.openSnackBar(res.errorMessage , 'successCssSnackBar');
+      } , (err) => {
+          console.log(err.error);
+          this.openSnackBar(err.error.errorMessage , 'failureCssSnackBar');
       });
     }
 
@@ -84,6 +91,11 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     editUser(user) {
       console.log(user);
+      this.dialog.open(UserActionsComponent , {
+         width: '650px',
+        height: '600px',
+          data: user,
+      });
 
     }
 

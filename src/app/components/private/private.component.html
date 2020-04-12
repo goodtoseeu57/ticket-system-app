@@ -17,28 +17,27 @@
 </mat-toolbar>
 
 <mat-sidenav-container >
-    <mat-sidenav #snav mode="side">
+    <mat-sidenav #snav mode="over">
     <mat-list>
-        <mat-list-item routerLink="/private/profile">
-
+        <mat-list-item routerLink="/private/profile" (click)="snav.toggle()">
         Profile
             <span class="example-fill-remaining-space"></span>
             <mat-icon class="arrow_forward">arrow_forward</mat-icon>
         </mat-list-item>
         <mat-divider></mat-divider>
-    <mat-list-item routerLink="/private/book-ticket">
+    <mat-list-item routerLink="/private/book-ticket" (click)="snav.toggle()">
             Book a ticket
         <span class="example-fill-remaining-space"></span>
         <mat-icon class="arrow_forward">arrow_forward</mat-icon>
     </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item  routerLink="/private/book-event">
+        <mat-list-item  routerLink="/private/book-event" (click)="snav.toggle()">
             Book an event
             <span class="example-fill-remaining-space"></span>
             <mat-icon class="arrow_forward">arrow_forward</mat-icon>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item  routerLink="/private/creators-events">
+        <mat-list-item  routerLink="/private/creators-events" (click)="snav.toggle()">
             Creators and events
             <span class="example-fill-remaining-space"></span>
             <mat-icon class="arrow_forward">arrow_forward</mat-icon>

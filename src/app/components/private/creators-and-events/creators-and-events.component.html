@@ -73,12 +73,13 @@
         </mat-card-content>
 
         <mat-chip-list>
-            <mat-chip color="warn">
+            <mat-chip >
                 {{event.location}}
             </mat-chip>
-            <mat-chip color="primary"> Available tickets {{event.tickets}} </mat-chip>
+            <mat-chip color="primary" *ngIf="event.tickets >0"> Available tickets {{event.tickets}} </mat-chip>
+            <mat-chip color="warn" *ngIf="event.tickets === 0" selected> Out of stock </mat-chip>
             <button mat-button class="detail-button" routerLink="/private/event-details/{{event._id}}">Details</button>
-            <button mat-button class="edit-button" (click)="buyTicket(event)">Buy Now</button>
+            <button mat-button class="edit-button" [disabled]="event.tickets === 0" (click)="buyTicket(event)">Buy Now</button>
         </mat-chip-list>
 
     </mat-card>

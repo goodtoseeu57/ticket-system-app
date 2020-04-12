@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EventService} from '../../../services/event.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import * as mapboxgl from 'mapbox-gl';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-book-event',
@@ -10,6 +12,12 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class BookEventComponent implements OnInit {
     selected = 'Rock';
+
+    map: mapboxgl.Map;
+    style = 'mapbox://styles/mapbox/streets-v11';
+    lat = 37.75;
+    lng = -122.41;
+
     eventForm = new FormGroup({
        location: new FormControl('' , Validators.required),
        concertType: new FormControl('' , Validators.required),
@@ -25,6 +33,15 @@ export class BookEventComponent implements OnInit {
               tickets: [''],
               date: [''],
               id: ['']
+      });
+
+      // @ts-ignore
+      mapboxgl.accessToken = environment.mapToken;
+      this.map = new mapboxgl.Map({
+          container: 'map',
+          style: this.style,
+          zoom: 13,
+          center: [this.lng, this.lat]
       });
   }
 
