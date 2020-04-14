@@ -6,6 +6,8 @@ import {EventService} from '../../../services/event.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatDialog } from '@angular/material/dialog';
 import {UserActionsComponent} from '../user-actions/user-actions.component';
+import { User } from 'src/app/models/User';
+
 
 
 @Component({
@@ -21,8 +23,9 @@ export class CreatorsAndEventsComponent implements OnInit {
         {value: 'Admin', viewValue: 'Creator'},
         {value: 'Customer', viewValue: 'Customer'}
     ];
-    dataSource: any = new MatTableDataSource();
+
     users: any;
+    dataSource = new MatTableDataSource();
     events: any;
     isLoading = true;
 
@@ -33,13 +36,14 @@ export class CreatorsAndEventsComponent implements OnInit {
 
   ngOnInit(): void {
       this.getAllUsers();
-      this.dataSource.paginator = this.paginator;
       this.getAllEvents();
+      this.dataSource.paginator = this.paginator;
   }
 
+
+
     getAllUsers() {
-    this.userService.getAllUsers().then((res) => {
-        console.log(res);
+    this.userService.getAllUsers().then((res: any) => {
         this.dataSource = res;
         this.users = res;
         this.isLoading = false;
@@ -62,10 +66,6 @@ export class CreatorsAndEventsComponent implements OnInit {
             console.log(error.error);
             this.openSnackBar(error.error.errorMessage , 'failureCssSnackBar');
             });
-    }
-
-    edit(user) {
-      console.log(user._id);
     }
 
     buyTicket(event) {
@@ -91,13 +91,19 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     editUser(user) {
       console.log(user);
-      this.dialog.open(UserActionsComponent , {
+      this.dialog.open(UserActionsComponent  , {
          width: '650px',
         height: '600px',
           data: user,
       });
 
     }
+
+      applyFilter(filterValue) {
+      console.log(filterValue);
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+
 
 
 }

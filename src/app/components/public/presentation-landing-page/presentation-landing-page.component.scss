@@ -170,3 +170,17 @@ $animationSpeed: 30s;
 h4, p {
     color: #445d6e;
 }
+
+.map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.match-parent {
+    margin-top: 100px;
+    width: 1500px;
+    height: 500px;
+    margin-bottom: 100px;
+}

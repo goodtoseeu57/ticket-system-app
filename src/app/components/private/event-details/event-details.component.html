@@ -1,9 +1,26 @@
-<mat-toolbar>
-    Event in {{event.location}} at {{event.date}}
-</mat-toolbar>
+<p class="title">
+    Event in {{event.location}} at {{event.date | date:'medium'}}
+</p>
+    <mat-divider></mat-divider>
 
 <mat-card>
+<mat-card-title> Event in {{event.location}} </mat-card-title>
+    <mat-card-subtitle> Creator: {{event.creator}} </mat-card-subtitle>
+    <img mat-card-image src="/assets/concert2.png" alt="Photo of a Shiba Inu">
+<mat-card-content>
+    <mat-chip-list aria-label="Fish selection">
 
-    {{ event.creator}}
+        <mat-chip color="accent" selected> Available tickets {{event.tickets}}</mat-chip>
+    </mat-chip-list>
+</mat-card-content>
+    <mat-card-actions>
+        <button mat-button routerLink="/private/creators-events"> <mat-icon>arrow_back</mat-icon> Back to events</button>
+        <button mat-button (click)="buyTicket(event)"> Buy now </button>
+    </mat-card-actions>
 
 </mat-card>
+
+
+<footer>
+
+</footer>

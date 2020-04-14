@@ -9,12 +9,14 @@
 
     <mat-form-field class="filter-options">
         <mat-label>Show users by role</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let filterOption of filterOptions" [value]="filterOption.value">
+        <mat-select >
+            <mat-option *ngFor="let filterOption of filterOptions" [value]="filterOption.value" (click)="applyFilter(filterOption.value)" >
                 {{filterOption.viewValue}}
+
             </mat-option>
         </mat-select>
     </mat-form-field>
+
 
 <table  *ngIf="!isLoading" mat-table [dataSource]="dataSource">
 
@@ -56,7 +58,9 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row  class="element-row" *matRowDef="let row; columns: displayedColumns;" ></tr>
+
 </table>
+
 
 <p style="text-align: center; margin-top: 40px; font-size: 40px;"> Available Events </p>
 
