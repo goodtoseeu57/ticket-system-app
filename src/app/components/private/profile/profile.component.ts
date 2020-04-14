@@ -37,10 +37,12 @@ export class ProfileComponent implements OnInit {
     }
 
   editProfile() {
+      // tslint:disable-next-line: max-line-length
       const user = new User(this.user._id ,  this.user.first_name , this.user.last_name , this.user.email , this.user.role , this.user.tickets);
       console.log(user);
-      this.userService.updateUser(user).then((res) => {
+      this.userService.updateMeUser(user).then((res: any) => {
           console.log(res);
+          this.openSnackBar(res.errorMessage , 'successCssSnackBar');
       });
   }
 
@@ -59,10 +61,16 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  openSnackBar(message: string , data: string) {
-      // this.snackBar.open({});
+    openSnackBar(message , cssClass) {
+        this.snackBar.open( message , '' , {
+                duration: 3000,
+                verticalPosition: 'top',
+                horizontalPosition: 'center',
+                panelClass: [cssClass]
+            }
+        );
+    }
 
-  }
 
 
 

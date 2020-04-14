@@ -39,10 +39,6 @@ export class PrivateComponent implements OnInit {
       this.authService.logout();
   }
 
-  refreshTokenTest() {
-      this.apiService.refresh().then((res) => {
-        console.log(res);
-      });
-  }
+
 
 }

@@ -38,6 +38,8 @@ import { UserActionsComponent } from './components/private/user-actions/user-act
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CreatorsAndEventsComponent,
     EventDetailsComponent,
     NotFoundComponent,
-    UserActionsComponent
+    UserActionsComponent,
   ],
     imports: [
         BrowserModule,

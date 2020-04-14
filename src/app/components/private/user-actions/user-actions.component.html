@@ -1,1 +1,45 @@
-<p>user-actions works!</p>
+
+
+<div class="component-container">
+
+<p>
+    <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Last Name" [(ngModel)]="data.first_name">
+        <mat-hint>Last Name</mat-hint>
+    </mat-form-field>
+</p>
+
+
+<p>
+    <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Last Name" [(ngModel)]="data.last_name">
+        <mat-hint>Last Name</mat-hint>
+    </mat-form-field>
+</p>
+
+<p>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" [(ngModel)]="data.email">
+        <mat-hint>Email</mat-hint>
+    </mat-form-field>
+</p>
+
+<p>
+    <mat-form-field appearance="outline">
+        <mat-label>Role</mat-label>
+        <input matInput placeholder="Role" [(ngModel)]="data.role" disabled>
+        <mat-hint> Edit Role</mat-hint>
+    </mat-form-field>
+</p>
+
+
+</div>
+
+<div class="actions">
+    <button mat-raised-button class="edit-button" (click)="editUser()"> Edit User</button>
+<button mat-raised-button class="close-button" (click)="closeDialog()"> Close </button>
+
+</div>

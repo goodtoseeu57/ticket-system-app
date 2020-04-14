@@ -48,9 +48,13 @@
     <mat-card-footer>
         <button mat-raised-button class="create-event-button"  [disabled]="!eventForm.valid" (click)="onSubmit()"> Create an event</button>
     </mat-card-footer>
+
+    <button class="showLocation" mat-raised-button (click)="trackUser()"> Show my location </button>
+
+    <div class="map" id="map" class="match-parent" ></div>
 </div>
 
+
+
 </mat-card>
-
-
 

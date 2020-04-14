@@ -4,6 +4,9 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {EventService} from '../../../services/event.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatDialog } from '@angular/material/dialog';
+import {UserActionsComponent} from '../user-actions/user-actions.component';
+import { User } from 'src/app/models/User';
 
 
 
@@ -20,24 +23,27 @@ export class CreatorsAndEventsComponent implements OnInit {
         {value: 'Admin', viewValue: 'Creator'},
         {value: 'Customer', viewValue: 'Customer'}
     ];
-    dataSource: any = new MatTableDataSource();
+
     users: any;
+    dataSource = new MatTableDataSource();
     events: any;
     isLoading = true;
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private userService: UserService , private eventService: EventService, private snackBar: MatSnackBar) { }
+  constructor(private userService: UserService , private eventService: EventService,
+              private snackBar: MatSnackBar , public dialog: MatDialog) { }
 
   ngOnInit(): void {
       this.getAllUsers();
-      this.dataSource.paginator = this.paginator;
       this.getAllEvents();
+      this.dataSource.paginator = this.paginator;
   }
 
+
+
     getAllUsers() {
-    this.userService.getAllUsers().then((res) => {
-        console.log(res);
+    this.userService.getAllUsers().then((res: any) => {
         this.dataSource = res;
         this.users = res;
         this.isLoading = false;
@@ -53,22 +59,23 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     delete(user) {
         console.log(user._id);
-        this.userService.deleteUser(user._id).then((res) => {
+        this.userService.deleteUser(user._id).then((res: any) => {
            console.log(res);
+           this.openSnackBar( res.data , 'successCssSnackBar');
         } , (error) => {
             console.log(error.error);
             this.openSnackBar(error.error.errorMessage , 'failureCssSnackBar');
             });
     }
 
-    edit(user) {
-      console.log(user._id);
-    }
-
     buyTicket(event) {
       console.log(event);
-      this.eventService.buyTicketEvent(event).then((res) => {
-         console.log(res);
+      this.eventService.buyTicketEvent(event).then((res: any) => {
+         console.log(res.errorMessage);
+         this.openSnackBar(res.errorMessage , 'successCssSnackBar');
+      } , (err) => {
+          console.log(err.error);
+          this.openSnackBar(err.error.errorMessage , 'failureCssSnackBar');
       });
     }
 
@@ -84,8 +91,19 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     editUser(user) {
       console.log(user);
+      this.dialog.open(UserActionsComponent  , {
+         width: '650px',
+        height: '600px',
+          data: user,
+      });
 
     }
+
+      applyFilter(filterValue) {
+      console.log(filterValue);
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+
 
 
 }

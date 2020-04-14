@@ -9,12 +9,14 @@
 
     <mat-form-field class="filter-options">
         <mat-label>Show users by role</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let filterOption of filterOptions" [value]="filterOption.value">
+        <mat-select >
+            <mat-option *ngFor="let filterOption of filterOptions" [value]="filterOption.value" (click)="applyFilter(filterOption.value)" >
                 {{filterOption.viewValue}}
+
             </mat-option>
         </mat-select>
     </mat-form-field>
+
 
 <table  *ngIf="!isLoading" mat-table [dataSource]="dataSource">
 
@@ -56,7 +58,9 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row  class="element-row" *matRowDef="let row; columns: displayedColumns;" ></tr>
+
 </table>
+
 
 <p style="text-align: center; margin-top: 40px; font-size: 40px;"> Available Events </p>
 
@@ -73,12 +77,13 @@
         </mat-card-content>
 
         <mat-chip-list>
-            <mat-chip color="warn">
+            <mat-chip >
                 {{event.location}}
             </mat-chip>
-            <mat-chip color="primary"> Available tickets {{event.tickets}} </mat-chip>
+            <mat-chip color="primary" *ngIf="event.tickets >0"> Available tickets {{event.tickets}} </mat-chip>
+            <mat-chip color="warn" *ngIf="event.tickets === 0" selected> Out of stock </mat-chip>
             <button mat-button class="detail-button" routerLink="/private/event-details/{{event._id}}">Details</button>
-            <button mat-button class="edit-button" (click)="buyTicket(event)">Buy Now</button>
+            <button mat-button class="edit-button" [disabled]="event.tickets === 0" (click)="buyTicket(event)">Buy Now</button>
         </mat-chip-list>
 
     </mat-card>

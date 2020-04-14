@@ -40,7 +40,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 footer {
     background-color: #626ee3;
-    height: 200px;
+    height: 400px;
 }
 
 .successCssSnackBar {
@@ -55,6 +55,10 @@ footer {
     color: white;
     margin: auto;
     text-align: center;
+}
+
+html,body{
+    overflow-x: hidden;
 }
 
 

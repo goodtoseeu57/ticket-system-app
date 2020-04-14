@@ -1,0 +1,29 @@
+.component-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .edit-button {
+        background-color: #2b85e7;
+        color: white;
+        width: 220px;
+        margin-bottom: 20px;
+        height: 50px;
+
+    }
+
+    .close-button {
+        background-color: violet;
+        color: white;
+        width: 220px;
+        margin-bottom: 20px;
+        height: 50px;
+    }
+}
