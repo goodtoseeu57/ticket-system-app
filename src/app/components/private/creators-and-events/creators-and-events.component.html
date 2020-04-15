@@ -2,7 +2,7 @@
 
 
 
-<div  class="container">
+<div *ngIf="user.role === 'superAdmin'" class="container">
 
     <mat-spinner  *ngIf="isLoading"></mat-spinner>
 

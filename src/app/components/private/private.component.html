@@ -3,8 +3,8 @@
     <span class="example-fill-remaining-space"></span>
     <span class="link" routerLink="/private/profile"> Profile</span>
     <span class="link" routerLink="/private/book-ticket"> Book a ticket </span>
-    <span class="link" routerLink="/private/book-event"> Book an event </span>
-    <span class="link" routerLink="/private/creators-events"> Creators and events </span>
+    <span class="link" *ngIf="user.role === 'Admin' || user.role === 'superAdmin'" routerLink="/private/book-event"> Book an event </span>
+    <span *ngIf="user.role === 'superAdmin'" class="link" routerLink="/private/creators-events"> Creators and events </span>
 
 
     <div class="numberCircle" [matMenuTriggerFor]="menu"> {{firstLetter}}
@@ -31,13 +31,13 @@
         <mat-icon class="arrow_forward">arrow_forward</mat-icon>
     </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item  routerLink="/private/book-event" (click)="snav.toggle()">
+        <mat-list-item *ngIf="user.role === 'Admin' || user.role === 'superAdmin'" routerLink="/private/book-event" (click)="snav.toggle()">
             Book an event
             <span class="example-fill-remaining-space"></span>
             <mat-icon class="arrow_forward">arrow_forward</mat-icon>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item  routerLink="/private/creators-events" (click)="snav.toggle()">
+        <mat-list-item *ngIf="user.role === 'superAdmin'" routerLink="/private/creators-events" (click)="snav.toggle()">
             Creators and events
             <span class="example-fill-remaining-space"></span>
             <mat-icon class="arrow_forward">arrow_forward</mat-icon>

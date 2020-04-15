@@ -2,8 +2,13 @@
     Book a ticket
 </mat-toolbar>
 
+<p class="title">
+    All Available Events at the moment
+</p>
+<mat-divider></mat-divider>
+
 <div class="calendar">
-    <mat-form-field>
+    <mat-form-field appearance="outline">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -29,8 +34,10 @@
             </mat-chip>
             <mat-chip color="primary" *ngIf="event.tickets > 0"> Available tickets {{event.tickets}} </mat-chip>
             <mat-chip color="warn" *ngIf="event.tickets === 0" selected> Out of stock </mat-chip>
-            <button mat-raised-button class="detail-button" routerLink="/private/event-details/{{event._id}}">Details</button>
-            <button mat-raised-button class="buy-button" [disabled]="event.tickets === 0" (click)="buyTicket(event)">Buy</button>
+            <mat-chip selected routerLink="/private/event-details/{{event._id}}">  Learn more <span class="filler"></span> <mat-icon>arrow_forward</mat-icon> </mat-chip>
+            <span class="filler"> </span>
+            <button mat-raised-button class="buy-button" [disabled]="event.tickets === 0" (click)="buyTicket(event)"> <mat-icon>credit_card</mat-icon> Buy now</button>
+
         </mat-chip-list>
 
 

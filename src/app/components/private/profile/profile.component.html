@@ -1,38 +1,41 @@
 <mat-toolbar class="unique-toolbar-component">
     Profile
 </mat-toolbar>
-
+<p class="title">
+    Edit your profile
+</p>
+<mat-divider></mat-divider>
 
     <div class="profile-container">
 
         <div class="profile-form">
         <p>
-        <mat-form-field appearance="legacy">
+        <mat-form-field appearance="outline">
             <mat-label>First name</mat-label>
-            <input matInput placeholder="First namer" [(ngModel)]="user.first_name">
+            <input matInput placeholder="First namer" [(ngModel)]="user.first_name" required>
             <mat-hint> First name</mat-hint>
         </mat-form-field>
     </p>
 
         <p>
-            <mat-form-field appearance="legacy">
+            <mat-form-field appearance="outline">
                 <mat-label>Last name</mat-label>
-                <input matInput placeholder="Last name" [(ngModel)]="user.last_name">
+                <input matInput placeholder="Last name" [(ngModel)]="user.last_name" required>
                 <mat-hint> Last name</mat-hint>
             </mat-form-field>
         </p>
         <p>
-            <mat-form-field appearance="legacy">
+            <mat-form-field appearance="outline">
                 <mat-label>Role</mat-label>
-                <input matInput placeholder="Role" [(ngModel)]="user.role" disabled>
+                <input matInput placeholder="Role" [(ngModel)]="user.role" disabled  required>
                 <mat-hint> Role</mat-hint>
             </mat-form-field>
         </p>
 
         <p>
-            <mat-form-field appearance="legacy">
+            <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput placeholder="Email" [(ngModel)]="user.email" disabled>
+                <input matInput placeholder="Email" [(ngModel)]="user.email" disabled required>
                 <mat-hint> Email</mat-hint>
             </mat-form-field>
         </p>
@@ -52,7 +55,7 @@
 <mat-divider></mat-divider>
 
 <div class="go-to-events">
-    <button mat-raised-button routerLink="/private/creators-events">Go to events session</button>
+    <button mat-raised-button routerLink="/private/book-event">Go to events session</button>
 </div>
 
 <div class="title-purchased-tickets">

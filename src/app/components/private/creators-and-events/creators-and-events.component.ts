@@ -28,6 +28,7 @@ export class CreatorsAndEventsComponent implements OnInit {
     dataSource = new MatTableDataSource();
     events: any;
     isLoading = true;
+    user: User;
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -38,9 +39,17 @@ export class CreatorsAndEventsComponent implements OnInit {
       this.getAllUsers();
       this.getAllEvents();
       this.dataSource.paginator = this.paginator;
+      this.getCurrentUser();
   }
 
+    getCurrentUser() {
+      const id = localStorage.getItem('id');
+      this.userService.getCurrentUser(id).then((res: User) => {
+          console.log(res);
+          this.user = res;
+      });
 
+    }
 
     getAllUsers() {
     this.userService.getAllUsers().then((res: any) => {

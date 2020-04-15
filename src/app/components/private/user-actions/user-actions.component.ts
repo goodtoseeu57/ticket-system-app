@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import {MAT_DIALOG_DATA, DialogRole, MatDialogRef} from '@angular/material/dialog';
 import { User } from '../../../models/User';
 import { UserService } from 'src/app/services/user.service';
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({

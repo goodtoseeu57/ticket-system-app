@@ -2,26 +2,42 @@
     Register
 </mat-toolbar>
 
+
+
 <form class="form" [formGroup]="registerForm">
 
-    <mat-form-field appearance="fill">
+    <p class="register-title"> Get started free
+    </p>
+
+
+    <p class="register-title">
+        No credit card required
+    </p>
+
+    <mat-card class="error-card" *ngIf="commonErrors">
+        Invalid Email or password
+    </mat-card>
+
+    <mat-form-field appearance="outline">
         <mat-label> First Name </mat-label>
         <input matInput formControlName="first_name" required>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
         <mat-label> Last Name </mat-label>
         <input matInput  formControlName="last_name" required>
     </mat-form-field>
 
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
         <mat-label> Email </mat-label>
         <input matInput placeholder="chris@test" formControlName="email" required>
+        <mat-error *ngIf="!validateEmail()"> Not a valid email </mat-error>
+
     </mat-form-field>
 
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
         <mat-label>Select your role</mat-label>
         <mat-select formControlName="role" required>
             <mat-option value="Admin"> Creator</mat-option>
@@ -31,9 +47,13 @@
     </mat-form-field>
 
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
         <mat-label> Password </mat-label>
-        <input matInput  formControlName="password" required>
+        <input matInput [type]="hide ? 'password' : 'text'"  formControlName="password" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon > {{hide ? 'visibility_off' : 'visibility'}} </mat-icon>
+        </button>
+        <mat-error *ngIf="!validatePassword()"> Not a valid password </mat-error>
     </mat-form-field>
 
 
@@ -43,4 +63,14 @@
 </form>
 
 <p style="margin-top: 17px; text-align: center"> Do you have already an account?
-    <button style="margin-left: 5px;" mat-flat-button routerLink="/public/login"> Sign In </button> </p>
+    <button style="margin-left: 5px; color: #626ee3" mat-flat-button routerLink="/public/login"> Sign In </button> </p>
+
+
+
+<mat-divider style="margin-top: 250px; margin-bottom: 10px;"></mat-divider>
+
+<p style="font-weight: 500; text-align: center; color: #626ee3;" >
+    © 2020 Ticket-App, Inc. - Ticket-App, Ticket-App, and the Ticket-App leaf logo are registered trademarks of Ticket-App, Inc. |
+</p>
+
+

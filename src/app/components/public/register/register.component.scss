@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 133px;
+    margin-top: 150px;
 
 }
 
@@ -12,9 +12,34 @@
 
 .form .mat-raised-button {
     width: 350px;
+
 }
 
-button {
-    background-color: #626ee3;
-    color: white;
+
+.register-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: Akzidenz Grotesk BQ Medium,Helvetica,Arial,serif;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 24px;
+    color: #626ee3;
+}
+
+
+
+.error-card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 55px;
+    width: 364px;
+    align-items: center;
+    padding: 0 12px;
+    display: flex;
+    flex-direction: row;
+    border-left: 10px solid red;
+    background-color: #ffdddd!important;
+
+
 }

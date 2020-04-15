@@ -1,9 +1,10 @@
 
 
 mat-card {
-background-color: white;
+
     height: 100%;
     width: 100%;
+    background-color: #fafafa;
 
     justify-content: center;
     .event-info {
@@ -14,14 +15,16 @@ background-color: white;
 
     }
 
-    mat-card-footer {
         .create-event-button{
             background-color: #626ee3;
             color:white;
             height: 50px;
             font-size: 16px;
-            width: 200px;
-        }
+            width: 300px;
+    }
+
+    .create-event-button:disabled {
+        background-color: rgba(0, 0, 0, 0.2);
     }
 
 }
@@ -37,3 +40,23 @@ background-color: white;
     background-color: burlywood;
     color: white;
 }
+
+mat-slide-toggle {
+     margin-top: 80px;
+    color:  #626ee3;
+}
+
+
+.title {
+    text-align: center;
+    margin: 40px 0 40px;
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
+    color: #626ee3;
+
+}
+
+mat-divider {
+    margin: 10px 70px 70px 70px;
+}
+

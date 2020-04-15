@@ -17,6 +17,7 @@ export class BookEventComponent implements OnInit {
     style = 'mapbox://styles/mapbox/streets-v11';
     lat = 50.3755;
     lng = -4.14384;
+    isTrackingUser = false;
 
 
     eventForm = new FormGroup({
@@ -32,9 +33,10 @@ export class BookEventComponent implements OnInit {
             location: [''],
             concertType: [''],
             tickets: [''],
-            date: [''],
-            id: ['']
+            date: ['']
         });
+
+        console.log(this.eventForm.valid);
 
         // @ts-ignore
         mapboxgl.accessToken = environment.mapToken;
@@ -52,11 +54,7 @@ export class BookEventComponent implements OnInit {
     }
 
     onSubmit() {
-        const id = localStorage.getItem('id');
-        console.log(id);
-        this.eventForm.value.id = id;
-        console.log(this.eventForm.value);
-        const Date = this.eventForm.value.date;
+
         this.eventService.postEvent(this.eventForm.value).then((res: any) => {
             console.log(res);
             this.openSnackBar(res.data, 'successCssSnackBar');
@@ -78,6 +76,7 @@ export class BookEventComponent implements OnInit {
     }
 
     trackUser() {
+        this.isTrackingUser = !this.isTrackingUser;
         this.map.addControl(
             new mapboxgl.GeolocateControl({
                 positionOptions: {
