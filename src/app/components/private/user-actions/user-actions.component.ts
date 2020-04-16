@@ -17,7 +17,6 @@ export class UserActionsComponent implements OnInit {
                 @Inject(MAT_DIALOG_DATA) public data: User  ,  private userService: UserService , private snackBar: MatSnackBar) { }
 
     ngOnInit(): void {
-        console.log(this.data);
     }
 
     closeDialog() {
@@ -25,11 +24,8 @@ export class UserActionsComponent implements OnInit {
     }
 
     editUser() {
-        // tslint:disable-next-line: max-line-length
         const user = new User(this.data._id, this.data.first_name, this.data.last_name, this.data.email, this.data.role, this.data.tickets);
-        console.log(user);
         this.userService.updateUser(user).then((res: any) => {
-            console.log(res);
             this.openSnackBar(res.errorMessage , 'successCssSnackBar');
         }, (err) => {
             console.log(err);

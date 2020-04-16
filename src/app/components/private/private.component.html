@@ -1,53 +1,55 @@
 <mat-toolbar class="header-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
     <span class="example-fill-remaining-space"></span>
     <span class="link" routerLink="/private/profile"> Profile</span>
     <span class="link" routerLink="/private/book-ticket"> Book a ticket </span>
     <span class="link" *ngIf="user.role === 'Admin' || user.role === 'superAdmin'" routerLink="/private/book-event"> Book an event </span>
-    <span *ngIf="user.role === 'superAdmin'" class="link" routerLink="/private/creators-events"> Creators and events </span>
+    <span *ngIf="user.role === 'superAdmin'" class="link"
+          routerLink="/private/creators-events"> Creators and events </span>
 
 
     <div class="numberCircle" [matMenuTriggerFor]="menu"> {{firstLetter}}
-            <mat-menu class="menu"  #menu="matMenu">
-                <button mat-menu-item routerLink="/private/profile">Profile</button>
-                <button mat-menu-item (click)="logout()"> Sign out</button>
-            </mat-menu>
+        <mat-menu class="menu" #menu="matMenu">
+            <button mat-menu-item routerLink="/private/profile">Profile</button>
+            <button mat-menu-item (click)="logout()"> Sign out</button>
+        </mat-menu>
     </div>
 
 </mat-toolbar>
 
-<mat-sidenav-container >
+<mat-sidenav-container>
     <mat-sidenav #snav mode="over">
-    <mat-list>
-        <mat-list-item routerLink="/private/profile" (click)="snav.toggle()">
-        Profile
-            <span class="example-fill-remaining-space"></span>
-            <mat-icon class="arrow_forward">arrow_forward</mat-icon>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-    <mat-list-item routerLink="/private/book-ticket" (click)="snav.toggle()">
-            Book a ticket
-        <span class="example-fill-remaining-space"></span>
-        <mat-icon class="arrow_forward">arrow_forward</mat-icon>
-    </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item *ngIf="user.role === 'Admin' || user.role === 'superAdmin'" routerLink="/private/book-event" (click)="snav.toggle()">
-            Book an event
-            <span class="example-fill-remaining-space"></span>
-            <mat-icon class="arrow_forward">arrow_forward</mat-icon>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item *ngIf="user.role === 'superAdmin'" routerLink="/private/creators-events" (click)="snav.toggle()">
-            Creators and events
-            <span class="example-fill-remaining-space"></span>
-            <mat-icon class="arrow_forward">arrow_forward</mat-icon>
-        </mat-list-item>
+        <mat-list>
+            <mat-list-item routerLink="/private/profile" (click)="snav.toggle()">
+                Profile
+                <span class="example-fill-remaining-space"></span>
+                <mat-icon class="arrow_forward">arrow_forward</mat-icon>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink="/private/book-ticket" (click)="snav.toggle()">
+                Book a ticket
+                <span class="example-fill-remaining-space"></span>
+                <mat-icon class="arrow_forward">arrow_forward</mat-icon>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item *ngIf="user.role === 'Admin' || user.role === 'superAdmin'" routerLink="/private/book-event"
+                           (click)="snav.toggle()">
+                Book an event
+                <span class="example-fill-remaining-space"></span>
+                <mat-icon class="arrow_forward">arrow_forward</mat-icon>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item *ngIf="user.role === 'superAdmin'" routerLink="/private/creators-events"
+                           (click)="snav.toggle()">
+                Creators and events
+                <span class="example-fill-remaining-space"></span>
+                <mat-icon class="arrow_forward">arrow_forward</mat-icon>
+            </mat-list-item>
         </mat-list>
     </mat-sidenav>
-
-
-<mat-sidenav-content>
-<router-outlet></router-outlet>
-</mat-sidenav-content>
-
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
 </mat-sidenav-container>

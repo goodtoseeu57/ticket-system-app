@@ -60,14 +60,12 @@ export class CreatorsAndEventsComponent implements OnInit {
 }
 
     getAllEvents() {
-      this.eventService.getEvents().then((res) => {
-         console.log(res);
+      this.eventService.getEvents().then((res: any) => {
          this.events = res;
       });
     }
 
     delete(user) {
-        console.log(user._id);
         this.userService.deleteUser(user._id).then((res: any) => {
            console.log(res);
            this.openSnackBar( res.data , 'successCssSnackBar');
@@ -78,7 +76,6 @@ export class CreatorsAndEventsComponent implements OnInit {
     }
 
     buyTicket(event) {
-      console.log(event);
       this.eventService.buyTicketEvent(event).then((res: any) => {
          console.log(res.errorMessage);
          this.openSnackBar(res.errorMessage , 'successCssSnackBar');
@@ -108,10 +105,10 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     }
 
-      applyFilter(filterValue) {
-      console.log(filterValue);
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-    }
+    //   applyFilter(filterValue) {
+    //   console.log(filterValue);
+    //   this.dataSource.filter = filterValue.trim().toLowerCase();
+    // }
 
 
 

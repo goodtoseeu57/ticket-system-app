@@ -32,7 +32,6 @@
     <mat-form-field appearance="outline">
         <mat-label> Email </mat-label>
         <input matInput placeholder="chris@test" formControlName="email" required>
-        <mat-error *ngIf="!validateEmail()"> Not a valid email </mat-error>
 
     </mat-form-field>
 
@@ -53,7 +52,6 @@
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon > {{hide ? 'visibility_off' : 'visibility'}} </mat-icon>
         </button>
-        <mat-error *ngIf="!validatePassword()"> Not a valid password </mat-error>
     </mat-form-field>
 
 

@@ -38,6 +38,7 @@ import { UserActionsComponent } from './components/private/user-actions/user-act
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -66,7 +67,7 @@ import {MatSliderModule} from '@angular/material/slider';
         MatNativeDateModule, MatGridListModule, MatMenuModule,
         FormsModule, MatSelectModule, MatTableModule,
         MatPaginatorModule, MatProgressSpinnerModule, MatSnackBarModule,
-        MatSlideToggleModule, MatSliderModule
+        MatSlideToggleModule, MatSliderModule , MatDialogModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EventDetailsComponent } from './event-details.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {EventService} from '../../../services/event.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 describe('EventDetailsComponent', () => {
   let component: EventDetailsComponent;
@@ -8,7 +11,11 @@ describe('EventDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventDetailsComponent ]
+      declarations: [ EventDetailsComponent ] ,
+        imports: [RouterTestingModule , MatSnackBarModule] ,
+        providers: [
+            {provide: EventService , useClass: EventServiceStub}
+            ]
     })
     .compileComponents();
   }));
@@ -23,3 +30,10 @@ describe('EventDetailsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+class EventServiceStub {
+    getEvent() {
+        return new Promise((resolve, reject) => {});
+    }
+}

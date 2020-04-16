@@ -30,14 +30,12 @@ export class EventDetailsComponent implements OnInit {
   }
 
   getEvent(id) {
-      console.log(id);
-      this.eventService.getEvent(id).then((res) => {
+      this.eventService.getEvent(id).then((res: any) => {
           this.event = res;
       });
   }
 
     buyTicket(event) {
-        console.log(event);
         this.eventService.buyTicketEvent(event).then((res: any) => {
             console.log(res.errorMessage);
             this.openSnackBar(res.errorMessage , 'successCssSnackBar');

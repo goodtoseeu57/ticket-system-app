@@ -13,7 +13,7 @@ export class UserService {
     constructor(private apiService: ApiService) {
     }
 
-    async getCurrentUser(id) {
+     getCurrentUser(id) {
         return new Promise((resolve, reject) => {
             this.apiService.get(`user/${id}`).then((res) => {
                     console.log(res);
