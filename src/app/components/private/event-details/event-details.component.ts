@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {EventService} from '../../../services/event.service';
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-event-details',
@@ -10,8 +10,17 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class EventDetailsComponent implements OnInit {
     event: any;
+    rating = 20;
 
   constructor(private activatedRoute: ActivatedRoute , private eventService: EventService , private snackBar: MatSnackBar) { }
+
+    formatLabel(value: number) {
+        if (value >= 10) {
+            return Math.round(value / 10) + `🍕`;
+        }
+
+        return value;
+    }
 
   ngOnInit(): void {
      this.activatedRoute.paramMap.subscribe((response) => {
@@ -21,14 +30,12 @@ export class EventDetailsComponent implements OnInit {
   }
 
   getEvent(id) {
-      console.log(id);
-      this.eventService.getEvent(id).then((res) => {
+      this.eventService.getEvent(id).then((res: any) => {
           this.event = res;
       });
   }
 
     buyTicket(event) {
-        console.log(event);
         this.eventService.buyTicketEvent(event).then((res: any) => {
             console.log(res.errorMessage);
             this.openSnackBar(res.errorMessage , 'successCssSnackBar');

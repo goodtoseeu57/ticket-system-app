@@ -1,21 +1,37 @@
 <p class="title">
     Event in {{event.location}} at {{event.date | date:'medium'}}
 </p>
-    <mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<div class="mat-slider-container">
+    <p class="title"> Event Rating </p>
+    <mat-slider thumbLabel
+                [displayWith]="formatLabel"
+                tickInterval="10"
+                min="1"
+                max="50" [(ngModel)]="rating"></mat-slider>
+</div>
+
 
 <mat-card>
-<mat-card-title> Event in {{event.location}} </mat-card-title>
+    <mat-card-title> Event in {{event.location}} </mat-card-title>
     <mat-card-subtitle> Creator: {{event.creator}} </mat-card-subtitle>
     <img mat-card-image src="/assets/concert2.png" alt="Photo of a Shiba Inu">
-<mat-card-content>
-    <mat-chip-list aria-label="Fish selection">
+    <mat-card-content>
+        <mat-chip-list aria-label="Fish selection">
 
-        <mat-chip color="accent" selected> Available tickets {{event.tickets}}</mat-chip>
-    </mat-chip-list>
-</mat-card-content>
+            <mat-chip color="accent" *ngIf="event.tickets > 0 " selected> Available tickets {{event.tickets}}</mat-chip>
+            <mat-chip color="warn" *ngIf="event.tickets === 0" selected> Out of stock</mat-chip>
+        </mat-chip-list>
+    </mat-card-content>
     <mat-card-actions>
-        <button mat-button routerLink="/private/creators-events"> <mat-icon>arrow_back</mat-icon> Back to events</button>
-        <button mat-button (click)="buyTicket(event)"> Buy now </button>
+        <button mat-button routerLink="/private/book-ticket">
+            <mat-icon>arrow_back</mat-icon>
+            Back to events
+        </button>
+        <button mat-button class="buy-button" [disabled]="event.tickets === 0" (click)="buyTicket(event)">
+            <mat-icon>credit_card</mat-icon>
+            Buy now
+        </button>
     </mat-card-actions>
 
 </mat-card>

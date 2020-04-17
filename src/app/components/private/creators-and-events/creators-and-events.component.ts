@@ -28,6 +28,7 @@ export class CreatorsAndEventsComponent implements OnInit {
     dataSource = new MatTableDataSource();
     events: any;
     isLoading = true;
+    user: User;
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -38,9 +39,17 @@ export class CreatorsAndEventsComponent implements OnInit {
       this.getAllUsers();
       this.getAllEvents();
       this.dataSource.paginator = this.paginator;
+      this.getCurrentUser();
   }
 
+    getCurrentUser() {
+      const id = localStorage.getItem('id');
+      this.userService.getCurrentUser(id).then((res: User) => {
+          console.log(res);
+          this.user = res;
+      });
 
+    }
 
     getAllUsers() {
     this.userService.getAllUsers().then((res: any) => {
@@ -51,14 +60,12 @@ export class CreatorsAndEventsComponent implements OnInit {
 }
 
     getAllEvents() {
-      this.eventService.getEvents().then((res) => {
-         console.log(res);
+      this.eventService.getEvents().then((res: any) => {
          this.events = res;
       });
     }
 
     delete(user) {
-        console.log(user._id);
         this.userService.deleteUser(user._id).then((res: any) => {
            console.log(res);
            this.openSnackBar( res.data , 'successCssSnackBar');
@@ -69,7 +76,6 @@ export class CreatorsAndEventsComponent implements OnInit {
     }
 
     buyTicket(event) {
-      console.log(event);
       this.eventService.buyTicketEvent(event).then((res: any) => {
          console.log(res.errorMessage);
          this.openSnackBar(res.errorMessage , 'successCssSnackBar');

@@ -9,7 +9,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit , OnDestroy {
+export class LoginComponent implements OnInit  {
     loginForm = new FormGroup({
         email: new FormControl('' , Validators.required) ,
         password: new FormControl('' , Validators.required)
@@ -48,8 +48,24 @@ export class LoginComponent implements OnInit , OnDestroy {
         );
     }
 
-  ngOnDestroy() {
 
-  }
+    validateEmail() {
+        const email = this.loginForm.value.email;
+        console.log(new RegExp('^\\S+@\\S+$').test(email));
+        if (!new RegExp('^\\S+@\\S+$').test(email)) {
+            return false;
+        }
+        return true;
+    }
+
+    validatePassword() {
+        const password = this.loginForm.value.password;
+        console.log(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})').test(password));
+        if (!new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})').test(password)) {
+            return false;
+        }
+        return true;
+
+    }
 
 }

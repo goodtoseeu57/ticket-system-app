@@ -36,7 +36,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NotFoundComponent } from './components/public/not-found/not-found.component';
 import { UserActionsComponent } from './components/private/user-actions/user-actions.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -60,8 +62,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule,
-        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatChipsModule, MatDatepickerModule,
-        MatNativeDateModule, MatGridListModule, MatMenuModule, FormsModule, MatSelectModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule, MatSnackBarModule
+        MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule,
+        MatChipsModule, MatDatepickerModule,
+        MatNativeDateModule, MatGridListModule, MatMenuModule,
+        FormsModule, MatSelectModule, MatTableModule,
+        MatPaginatorModule, MatProgressSpinnerModule, MatSnackBarModule,
+        MatSlideToggleModule, MatSliderModule , MatDialogModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -41,12 +41,17 @@
     .mat-flat-button {
         background-color: #02203c;
         color: white;
+        height: 50px;
+        width: 150px;
     }
 }
 
 
 .profile-form {
     margin-top: 8rem;
+    mat-form-field {
+        width: 300px;
+    }
 }
 
 mat-grid-list {
@@ -80,5 +85,18 @@ footer {
     background-color: #626ee3;
     height: 200px
 }
+
+.title {
+    text-align: center;
+    margin: 40px 0 40px;
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
+    color: #626ee3;
+}
+
+mat-divider {
+    margin: 10px 70px 70px 70px;
+}
+
 
 
