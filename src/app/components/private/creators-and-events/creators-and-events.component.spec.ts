@@ -29,7 +29,8 @@ describe('CreatorsAndEventsComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+      TestBed.get(component);
+      expect(component).toBeTruthy();
   });
 });
 

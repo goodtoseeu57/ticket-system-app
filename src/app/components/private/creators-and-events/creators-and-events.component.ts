@@ -105,10 +105,10 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     }
 
-    //   applyFilter(filterValue) {
-    //   console.log(filterValue);
-    //   this.dataSource.filter = filterValue.trim().toLowerCase();
-    // }
+      applyFilter(filterValue) {
+      console.log(filterValue);
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
 
 
 
