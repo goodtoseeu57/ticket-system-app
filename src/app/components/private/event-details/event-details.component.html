@@ -12,7 +12,7 @@
 </div>
 
 
-<mat-card>
+<mat-card *ngIf="event">
     <mat-card-title> Event in {{event.location}} </mat-card-title>
     <mat-card-subtitle> Creator: {{event.creator}} </mat-card-subtitle>
     <img mat-card-image src="/assets/concert2.png" alt="Photo of a Shiba Inu">
@@ -23,7 +23,7 @@
             <mat-chip color="warn" *ngIf="event.tickets === 0" selected> Out of stock</mat-chip>
         </mat-chip-list>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions >
         <button mat-button routerLink="/private/book-ticket">
             <mat-icon>arrow_back</mat-icon>
             Back to events
