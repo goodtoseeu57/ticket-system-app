@@ -1,4 +1,4 @@
-<mat-toolbar class="header-toolbar">
+<mat-toolbar *ngIf="user" class="header-toolbar">
     <button mat-icon-button (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
