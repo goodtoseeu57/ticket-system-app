@@ -4,6 +4,7 @@ import { EventDetailsComponent } from './event-details.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {EventService} from '../../../services/event.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {By} from '@angular/platform-browser';
 
 describe('EventDetailsComponent', () => {
   let component: EventDetailsComponent;
@@ -28,6 +29,12 @@ describe('EventDetailsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain event location and event date' , () => {
+     component.event.location = 'some location';
+     const title = fixture.debugElement.query(By.css('.title')).nativeElement;
+     console.log(title);
   });
 });
 

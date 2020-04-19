@@ -9,6 +9,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -17,7 +19,7 @@ describe('RegisterComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ RegisterComponent ] ,
-        imports: [ ReactiveFormsModule , RouterTestingModule , MatSnackBarModule , MatSelectModule , MatFormFieldModule , MatInputModule , BrowserAnimationsModule] ,
+        imports: [ ReactiveFormsModule , RouterTestingModule , MatSnackBarModule , MatButtonModule , MatSelectModule , MatIconModule ,  MatFormFieldModule , MatInputModule , BrowserAnimationsModule] ,
         providers: [
             {provide: ApiService , useClass: ApiServiceStub}
         ]
