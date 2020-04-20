@@ -21,7 +21,7 @@
 
 <mat-sidenav-container>
     <mat-sidenav #snav mode="over">
-        <mat-list>
+        <mat-list *ngIf="user">
             <mat-list-item routerLink="/private/profile" (click)="snav.toggle()">
                 Profile
                 <span class="example-fill-remaining-space"></span>

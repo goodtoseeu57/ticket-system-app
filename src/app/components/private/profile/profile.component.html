@@ -70,7 +70,7 @@
 
 <div *ngIf="tickets">
 <mat-grid-list cols="3" rowHeight="7:3" [gutterSize]="'15px'">
-    <mat-grid-tile *ngFor="let event of tickets">
+    <mat-grid-tile *ngFor="let event of tickets" routerLink="/private/event-details/{{event._id}}">
     <mat-grid-tile-header>
        {{event.location}}
     </mat-grid-tile-header>
