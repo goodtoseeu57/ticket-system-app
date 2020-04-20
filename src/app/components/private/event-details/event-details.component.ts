@@ -12,6 +12,7 @@ import {EventModel} from '../../../models/Event';
 export class EventDetailsComponent implements OnInit {
     event: EventModel;
     rating = 20;
+    availableEvent = false;
 
   constructor(private activatedRoute: ActivatedRoute , private eventService: EventService , private snackBar: MatSnackBar) { }
 
@@ -33,6 +34,7 @@ export class EventDetailsComponent implements OnInit {
   getEvent(id) {
       this.eventService.getEvent(id).then((res: any) => {
           this.event = res;
+          this.availableEvent = true;
       });
   }
 

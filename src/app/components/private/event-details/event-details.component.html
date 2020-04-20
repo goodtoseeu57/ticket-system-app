@@ -12,15 +12,16 @@
 </div>
 
 
-<mat-card *ngIf="event">
+<mat-card>
     <mat-card-title> Event in {{event.location}} </mat-card-title>
     <mat-card-subtitle> Creator: {{event.creator}} </mat-card-subtitle>
     <img mat-card-image src="/assets/concert2.png" alt="Photo of a Shiba Inu">
     <mat-card-content>
         <mat-chip-list aria-label="Fish selection">
 
-            <mat-chip color="accent" *ngIf="event.tickets > 0 " selected> Available tickets {{event.tickets}}</mat-chip>
-            <mat-chip color="warn" *ngIf="event.tickets === 0" selected> Out of stock</mat-chip>
+            <mat-chip color="accent" *ngIf="event.tickets" selected> Available tickets {{event.tickets}}</mat-chip>
+            <mat-chip color="accent" *ngIf="!event.tickets" selected> Out of stock </mat-chip>
+        
         </mat-chip-list>
     </mat-card-content>
     <mat-card-actions >
@@ -28,7 +29,7 @@
             <mat-icon>arrow_back</mat-icon>
             Back to events
         </button>
-        <button mat-button class="buy-button" [disabled]="event.tickets === 0" (click)="buyTicket(event)">
+        <button mat-button class="buy-button" [disabled]="!event.tickets" (click)="buyTicket(event)">
             <mat-icon>credit_card</mat-icon>
             Buy now
         </button>
