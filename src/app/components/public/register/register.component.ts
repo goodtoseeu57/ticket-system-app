@@ -36,6 +36,7 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit() {
+        this.commonErrors = false;
         if (this.validateEmail() && this.validatePassword()) {
             console.log(this.registerForm.value);
             this.apiService.post('register', this.registerForm.value).then((res: any) => {

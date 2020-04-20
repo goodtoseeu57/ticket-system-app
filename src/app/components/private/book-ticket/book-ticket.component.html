@@ -16,7 +16,7 @@
     </mat-form-field>
 </div>
 
-<div class="cards-container">
+<div *ngIf="events" class="cards-container">
     <mat-card *ngFor="let event of events">
         <mat-card-title> <mat-chip> Creator {{event.creator}} </mat-chip> </mat-card-title>
         <mat-card-subtitle> Date of the event {{event.date | date: 'medium'}} </mat-card-subtitle>
