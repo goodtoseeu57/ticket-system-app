@@ -2,21 +2,27 @@
     <button mat-icon-button (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
-    <span class="example-fill-remaining-space"></span>
-    <span class="link" routerLink="/private/profile"> Profile</span>
+  
     <span class="link" routerLink="/private/book-ticket"> Book a ticket </span>
     <span class="link" *ngIf="user.role === 'Admin' || user.role === 'superAdmin'" routerLink="/private/book-event"> Book an event </span>
     <span *ngIf="user.role === 'superAdmin'" class="link"
           routerLink="/private/creators-events"> Creators and events </span>
 
 
+<span class="example-fill-remaining-space"></span>
+<div class="search-bar">
+<input type="text" placeholder="Search..">
+</div>
     <div class="numberCircle" [matMenuTriggerFor]="menu"> {{firstLetter}}
         <mat-menu class="menu" #menu="matMenu">
-            <button mat-menu-item routerLink="/private/profile">Profile</button>
-            <button mat-menu-item (click)="logout()"> Sign out</button>
+            <button class="manage-your-account" mat-menu-item routerLink="/private/profile">Manage your account</button>
+            <p class="email-menu"> {{user.email}} </p>
+            <mat-divider>
+            </mat-divider>
+            <button mat-menu-item (click)="logout()"> Log out</button>
+          
         </mat-menu>
     </div>
-
 </mat-toolbar>
 
 <mat-sidenav-container>

@@ -21,13 +21,14 @@ export class BookTicketComponent implements OnInit {
 
 
     buyTicket(event) {
-        this.eventService.buyTicketEvent(event).then((res: any) => {
-            console.log(res.errorMessage);
-            this.openSnackBar(res.errorMessage , 'successCssSnackBar');
-        } , (err) => {
-            console.log(err.error);
-            this.openSnackBar(err.error.errorMessage , 'failureCssSnackBar');
-        });
+        // this.eventService.buyTicketEvent(event).then((res: any) => {
+        //     console.log(res.errorMessage);
+        //     this.openSnackBar(res.errorMessage , 'successCssSnackBar');
+        // } , (err) => {
+        //     console.log(err.error);
+        //     this.openSnackBar(err.error.errorMessage , 'failureCssSnackBar');
+        // });
+        console.log(event);
     }
 
     openSnackBar(message , cssClass) {

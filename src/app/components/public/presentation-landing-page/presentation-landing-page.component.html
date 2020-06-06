@@ -1,22 +1,12 @@
-<header class="header">
-    <mat-toolbar>
 
-        <span class="fill-space" ></span>
+<mat-toolbar color="primary">
 
-        <span class="option-link" routerLink="/public/register"> Sign up </span>
-        <span class="option-link" routerLink="/public/login"> Sign in </span>
-    </mat-toolbar>
+    <span class="fill-space" ></span>
 
-    <div class="text-box">
-        <h1 class="heading-primary">
-            <span class="heading-primary-main"> Your favourite concert is just a click away</span>
-            <span class="heading-primary-sub"> Book a ticket now </span>
-        </h1>
-        <a href="#" class="btn btn-white btn-animated" routerLink="/public/login">Browse our concerts</a>
-    </div>
+    <span class="option-link" routerLink="/public/register"> Sign up </span>
+    <span class="option-link" routerLink="/public/login"> Sign in </span>
+</mat-toolbar>
 
-
-</header>
 <div class="instructions-cards">
 <mat-card class="card-small" routerLink="/private/book-event">
     <mat-icon>event</mat-icon>
@@ -30,6 +20,36 @@
 
 <mat-divider></mat-divider>
 
+<!---->
+<div class="grid-container">
+    <div *ngFor="let item of [1,2,3]" class="grid-item"><mat-card class="card-small" routerLink="/private/book-ticket">
+        <mat-icon>credit_card</mat-icon>
+        Buy your tickets
+    </mat-card></div>
+    <div class="grid-item"><mat-card class="card-small" routerLink="/private/book-ticket">
+        <mat-icon>credit_card</mat-icon>
+        Buy your tickets
+    </mat-card></div>
+   
+</div>
+
+<!-- <mat-card class="text-description">
+    <span [ngSwitch]="eventsnfo">
+    <p *ngSwitchCase="customer">
+        customer
+    
+    </p>
+    <p *ngSwitchCase="events">
+       events
+    </p>
+    <p *ngSwitchDefault>
+        Standard diet
+    </p>
+    </span>
+</mat-card> -->
+
+<mat-divider>
+</mat-divider>
 <div class="map-container">
     <p style="font-size: 40px; "> Find concerts in a specific location </p>
 <div class="map" id="map" class="match-parent"></div>
@@ -86,6 +106,4 @@
     </div>
 </div>
 
-<footer>
 
-</footer>

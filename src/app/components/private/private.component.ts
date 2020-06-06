@@ -23,6 +23,7 @@ export class PrivateComponent implements OnInit {
         const id = localStorage.getItem('id');
         this.userService.getCurrentUser(id).then((res: User) => {
             this.user = res;
+            console.log(this.user);
             this.firstLetter = this.user.first_name.substring(0, 1).toUpperCase();
         });
 

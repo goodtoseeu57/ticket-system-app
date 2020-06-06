@@ -39,6 +39,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CheckoutComponent } from './components/private/checkout/checkout.component';
 
 
 
@@ -57,6 +58,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     EventDetailsComponent,
     NotFoundComponent,
     UserActionsComponent,
+    CheckoutComponent,
   ],
     imports: [
         BrowserModule,

@@ -2,6 +2,16 @@
     flex: 1 1 auto;
 }
 
+::ng-deep .menu {
+    width: 290px;
+}
+
+.email-menu, .manage-your-account   {
+    text-align: center;
+    color: cadetblue;
+}
+
+
 
 .mat-sidenav {
     width: 300px;
@@ -19,18 +29,19 @@
         color: #02203c;
 
     }
-
-    .arrow_forward {
-
-    }
-
     mat-divider {
         background-color: darkgrey;
     }
 
 }
 
-
+.search-bar {
+    padding: 0px 20px 0px;
+    input {
+    border-radius: 25px;
+    padding: 10px 20px 10px;
+    }
+}
 
 .numberCircle {
     width: 40px;
@@ -42,9 +53,10 @@
     background-color: white;
     color: #02203c;
     cursor: pointer;
+    margin-right: 20px;
 
-   .mat-menu-content {
-       width: 272px;
+   mat-menu-content {
+       width: 272px !important;
    }
 }
 
@@ -53,16 +65,12 @@
     color: white;
     position: sticky;
     height: 63px;
+    padding: 2px;
     .link {
-        margin: 0 15px;
-        border-bottom: 4px solid transparent;
-        padding: 35px 0 35px;
+        margin: 0 10px 0;
+       
     }
 
-    .link:hover {
-        color: #fc0;
-        border-bottom-color: #fc0;
-    }
 
     .album {
         color: #626ee3;
