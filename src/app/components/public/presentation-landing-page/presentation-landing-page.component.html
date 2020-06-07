@@ -1,52 +1,30 @@
 
 <mat-toolbar color="primary">
-
+    Ticket app 
     <span class="fill-space" ></span>
 
     <span class="option-link" routerLink="/public/register"> Sign up </span>
     <span class="option-link" routerLink="/public/login"> Sign in </span>
 </mat-toolbar>
 
-<div class="instructions-cards">
-<mat-card class="card-small" routerLink="/private/book-event">
-    <mat-icon>event</mat-icon>
-    Create events for you or for your company
-</mat-card>
-<mat-card class="card-small" routerLink="/private/book-ticket">
-    <mat-icon>credit_card</mat-icon>
-     Buy your tickets now
-</mat-card>
-</div>
+
 
 <mat-divider></mat-divider>
 
-<!---->
-<div class="grid-container">
-    <div *ngFor="let item of [1,2,3]" class="grid-item"><mat-card class="card-small" routerLink="/private/book-ticket">
+<div class="instructions-cards">
+    <mat-card class="card-small" routerLink="/private/book-event">
+        <mat-icon>event</mat-icon>
+        Create events for you or for your company
+    </mat-card>
+    <mat-card class="card-small" routerLink="/private/book-ticket">
         <mat-icon>credit_card</mat-icon>
-        Buy your tickets
-    </mat-card></div>
-    <div class="grid-item"><mat-card class="card-small" routerLink="/private/book-ticket">
-        <mat-icon>credit_card</mat-icon>
-        Buy your tickets
-    </mat-card></div>
-   
+        Buy your tickets now
+    </mat-card>
 </div>
 
-<!-- <mat-card class="text-description">
-    <span [ngSwitch]="eventsnfo">
-    <p *ngSwitchCase="customer">
-        customer
-    
-    </p>
-    <p *ngSwitchCase="events">
-       events
-    </p>
-    <p *ngSwitchDefault>
-        Standard diet
-    </p>
-    </span>
-</mat-card> -->
+
+
+
 
 <mat-divider>
 </mat-divider>

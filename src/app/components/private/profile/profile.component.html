@@ -45,7 +45,7 @@
 
 
 
-<div class="bottom-buttons">
+<div *ngIf="user" class="bottom-buttons">
 <button mat-flat-button  (click)="editProfile()">
     Edit your profile
 </button>
@@ -54,7 +54,7 @@
 
 <mat-divider></mat-divider>
 
-<div class="go-to-events">
+<div *ngIf="user" class="go-to-events">
     <button mat-raised-button routerLink="/private/book-ticket">Go to events session</button>
 </div>
 
@@ -68,7 +68,7 @@
 </div>
 
 
-<div *ngIf="tickets">
+<div *ngIf="tickets && user">
 <mat-grid-list cols="3" rowHeight="7:3" [gutterSize]="'15px'">
     <mat-grid-tile *ngFor="let event of tickets" routerLink="/private/event-details/{{event._id}}">
     <mat-grid-tile-header>
@@ -84,7 +84,7 @@
 </mat-grid-list>
 </div>
 
-<footer class="footer">
+<footer *ngIf="user" class="footer">
 
 
 </footer>

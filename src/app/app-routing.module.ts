@@ -12,6 +12,8 @@ import {CreatorsAndEventsComponent} from './components/private/creators-and-even
 import {EventDetailsComponent} from './components/private/event-details/event-details.component';
 import {NotFoundComponent} from './components/public/not-found/not-found.component';
 import {PresentationLandingPageComponent} from './components/public/presentation-landing-page/presentation-landing-page.component';
+import { ForgotPasswordComponent } from './components/public/forgot-password/forgot-password.component';
+import { ConfirmPasswordComponent } from './components/public/confirm-password/confirm-password.component';
 
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
         {path: 'register' , component: RegisterComponent} ,
         {path: 'login' , component: LoginComponent} ,
         {path: 'not-found' , component: NotFoundComponent} ,
+        {path: 'forgot-password' , component: ForgotPasswordComponent},
+        {path: 'confirm-password' , component: ConfirmPasswordComponent }
     ]} ,
     {path: 'private', component: PrivateComponent , canActivateChild: [AuthGuard]  , children: [
             {path: 'book-ticket' , component: BookTicketComponent} ,

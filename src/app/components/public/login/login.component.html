@@ -24,8 +24,11 @@
             </button>
         </mat-form-field>
 
-        <button mat-raised-button (click)="onSubmit()"> Log in </button>
-
+        <div class="actions">
+            <button class="forgot-password" mat-button router [routerLink]="[ '/public/forgot-password' ]"
+                routerLinkActive="active"> Forgot password </button>
+            <button mat-raised-button (click)="onSubmit()"> Log in </button>        
+        </div>
     </form>
 
 

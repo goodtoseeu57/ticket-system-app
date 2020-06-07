@@ -3,6 +3,8 @@ import {EventService} from '../../../services/event.service';
 import * as mapboxgl from 'mapbox-gl';
 import {environment} from '../../../../environments/environment';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { CheckoutComponent } from '../checkout/checkout.component';
 
 @Component({
     selector: 'app-book-ticket',
@@ -11,7 +13,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class BookTicketComponent implements OnInit {
     events: any;
-    constructor(private eventService: EventService , private snackBar: MatSnackBar) {}
+    constructor(private eventService: EventService , private snackBar: MatSnackBar, private dialog: MatDialog) {}
 
     ngOnInit(): void {
         this.eventService.getEvents().then((res) => {
@@ -21,6 +23,11 @@ export class BookTicketComponent implements OnInit {
 
 
     buyTicket(event) {
+        this.dialog.open( CheckoutComponent, {
+            width: '800px',
+            height: '600px',
+            data: event
+        });
         // this.eventService.buyTicketEvent(event).then((res: any) => {
         //     console.log(res.errorMessage);
         //     this.openSnackBar(res.errorMessage , 'successCssSnackBar');
