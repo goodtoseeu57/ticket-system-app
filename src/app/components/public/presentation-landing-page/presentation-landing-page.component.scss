@@ -6,21 +6,7 @@ body {
     color: #eee;
 }
 
-.header {
-    height: 100vh;
-    background-image:
-        //linear-gradient(to right bottom,
-        //    rgba(76, 216, 255, 0.8),
-        //    rgba(30, 108, 217, 0.8)),
-        url('src/assets/concert2.png');
-    // https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg
 
-    background-size: cover;
-    background-position: top;
-    position: relative;
-
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
 
 .brand-box {
     position: absolute;
@@ -191,6 +177,8 @@ h4, p {
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
+   
+
 }
 
 .card-small {
@@ -216,4 +204,16 @@ h4, p {
 
 mat-divider {
     margin-bottom: 90px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    .grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
 }

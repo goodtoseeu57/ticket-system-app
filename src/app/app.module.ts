@@ -18,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { PrivateComponent } from './components/private/private.component';
 import { BookTicketComponent } from './components/private/book-ticket/book-ticket.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatStepperModule } from '@angular/material/stepper';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatChipsModule} from '@angular/material/chips';
@@ -39,6 +40,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CheckoutComponent } from './components/private/checkout/checkout.component';
+import { ForgotPasswordComponent } from './components/public/forgot-password/forgot-password.component';
+import { ConfirmPasswordComponent } from './components/public/confirm-password/confirm-password.component';
 
 
 
@@ -57,6 +61,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     EventDetailsComponent,
     NotFoundComponent,
     UserActionsComponent,
+    CheckoutComponent,
+    ForgotPasswordComponent,
+    ConfirmPasswordComponent,
   ],
     imports: [
         BrowserModule,
@@ -67,7 +74,7 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatNativeDateModule, MatGridListModule, MatMenuModule,
         FormsModule, MatSelectModule, MatTableModule,
         MatPaginatorModule, MatProgressSpinnerModule, MatSnackBarModule,
-        MatSlideToggleModule, MatSliderModule , MatDialogModule
+        MatSlideToggleModule, MatSliderModule, MatDialogModule, MatStepperModule
     ],
   providers: [],
   bootstrap: [AppComponent]

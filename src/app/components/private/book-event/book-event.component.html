@@ -50,13 +50,8 @@
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     </p>
-
-
-
         <button class="create-event-button" mat-raised-button type="submit"  [disabled]="!eventForm.valid" (click)="onSubmit()"> Create an event</button>
-
     </form>
-
     <mat-slide-toggle (click)="trackUser()"> Track my location </mat-slide-toggle>
 
     <div class="map" id="map" class="match-parent" ></div>

@@ -4,7 +4,6 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-
 }
 
 .login-form {
@@ -15,15 +14,24 @@
     align-items: center;
 
     .mat-form-field {
-        width: 400px;
+        width: 410px;
+    }
+
+    .actions {
+         width: 400px;
+        display: flex;
+        justify-content: space-between;
     }
 
     .mat-raised-button {
         background-color: #626ee3;
         color: white;
         align-items: center;
-        margin-left: 20.25rem;
 
+    }
+
+    .forgot-password {
+        color: blue;
     }
 }
 
@@ -45,8 +53,18 @@ span {
 
 }
 
+
+.back-to-register {
+       margin-left: 6rem;
+    margin-top: 6rem;
+}
 img {
     border-radius: 21%;
+}
+
+body {
+    background-color: #343434;
+    display: block;
 }
 
 

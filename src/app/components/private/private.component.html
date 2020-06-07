@@ -2,21 +2,46 @@
     <button mat-icon-button (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
-    <span class="example-fill-remaining-space"></span>
-    <span class="link" routerLink="/private/profile"> Profile</span>
+  
     <span class="link" routerLink="/private/book-ticket"> Book a ticket </span>
     <span class="link" *ngIf="user.role === 'Admin' || user.role === 'superAdmin'" routerLink="/private/book-event"> Book an event </span>
     <span *ngIf="user.role === 'superAdmin'" class="link"
           routerLink="/private/creators-events"> Creators and events </span>
 
 
+<span class="example-fill-remaining-space"></span>
+<div class="search-bar">
+<input type="text" placeholder="Search..">
+</div>
+    <div  [matMenuTriggerFor]="notifications"> <mat-icon class="notifications">notifications_active</mat-icon>
+        <mat-menu class="menu" #notifications="matMenu">
+            <div *ngFor="let event of events">
+            <button routerLink='event-details/{{event._id}}' mat-menu-item> <mat-icon>location_city</mat-icon> {{event.location}} </button>
+            <button routerLink='event-details/{{event._id}}' routerLinkActive="active" mat-menu-item>
+                <mat-icon>date_range</mat-icon> On {{event.date}}
+            </button>
+            <mat-divider>
+            </mat-divider>
+            </div>
+            
+        </mat-menu>
+
+    </div>
     <div class="numberCircle" [matMenuTriggerFor]="menu"> {{firstLetter}}
         <mat-menu class="menu" #menu="matMenu">
-            <button mat-menu-item routerLink="/private/profile">Profile</button>
-            <button mat-menu-item (click)="logout()"> Sign out</button>
+            <button  mat-menu-item routerLink="/private/profile"> <mat-icon>person_pin</mat-icon> Manage your account</button>
+
+            <mat-divider>
+            </mat-divider>
+            
+            <button mat-menu-item (click)="darkMode()"> <mat-icon>brightness_medium</mat-icon> Dark mode</button>
+            <mat-divider>
+            </mat-divider>
+
+            <button mat-menu-item (click)="logout()"> <mat-icon>logout</mat-icon> Log out</button>
+          
         </mat-menu>
     </div>
-
 </mat-toolbar>
 
 <mat-sidenav-container>

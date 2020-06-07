@@ -54,7 +54,6 @@ export class BookEventComponent implements OnInit {
     }
 
     onSubmit() {
-
         this.eventService.postEvent(this.eventForm.value).then((res: any) => {
             console.log(res);
             this.openSnackBar(res.data, 'successCssSnackBar');
