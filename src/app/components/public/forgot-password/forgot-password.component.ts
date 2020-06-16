@@ -1,17 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+    selector: 'app-forgot-password',
+    templateUrl: './forgot-password.component.html',
+    styleUrls: ['./forgot-password.component.scss']
 })
-export class ForgotPasswordComponent implements OnInit {
+export class ForgotPasswordComponent implements OnInit, AfterViewInit {
 
     emailSent: boolean;
-    
-  constructor() { }
+    email: string;
 
-  ngOnInit(): void {
-  }
+    constructor( private elementRef: ElementRef , private userService: UserService) { }
+
+    ngOnInit(): void {
+
+    }
+
+    ngAfterViewInit(): void {
+        console.log(this.elementRef.nativeElement);
+        window.document.body.style.backgroundColor = 'green';
+        this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f9f9f9';
+        //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+        //Add 'implements AfterViewInit' to the class.
+        
+    }
+
+    forgotPassword() {
+        console.log(this.email);
+    }
 
 }

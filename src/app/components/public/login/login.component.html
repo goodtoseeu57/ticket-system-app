@@ -1,6 +1,6 @@
 
 <button class="back-to-register" mat-button color="primary" routerLink="/public/register">
-    <mat-icon>arrow_back</mat-icon> Back to Register
+    <mat-icon>arrow_back</mat-icon> Create an account
 </button>
 <div class="container">
    
@@ -17,7 +17,7 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-            <mat-label> Password</mat-label>
+            <mat-label>Password</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

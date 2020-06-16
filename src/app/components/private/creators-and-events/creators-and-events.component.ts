@@ -1,6 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {UserService} from '../../../services/user.service';
 import {MatPaginator} from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {EventService} from '../../../services/event.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -16,30 +17,37 @@ import {User} from 'src/app/models/User';
 })
 
 
-export class CreatorsAndEventsComponent implements OnInit {
+export class CreatorsAndEventsComponent implements OnInit , AfterViewInit {
     displayedColumns: string[] = ['first_name', 'last_name', 'email', 'role', 'actions', 'settings'];
     filterOptions = [
         {value: 'Admin', viewValue: 'Creator'},
-        {value: 'Customer', viewValue: 'Customer'}
+        {value: 'Customer', viewValue: 'Customer'},
+        {value: '' , viewValue: 'All'}
     ];
 
+    resultsLength = 0;
     users: any;
-    dataSource = new MatTableDataSource();
+    dataSource: UserService | null;
     events: any;
     isLoading = true;
     user: User;
 
-    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
 
     constructor(private userService: UserService, private eventService: EventService,
                 private snackBar: MatSnackBar, public dialog: MatDialog) {
     }
 
     ngOnInit(): void {
-        this.getAllUsers();
         this.getAllEvents();
-        this.dataSource.paginator = this.paginator;
         this.getCurrentUser();
+        
+    }
+
+    ngAfterViewInit(): void {
+        this.getAllUsers();
+       
     }
 
     getCurrentUser() {
@@ -53,7 +61,7 @@ export class CreatorsAndEventsComponent implements OnInit {
 
     getAllUsers() {
         this.userService.getAllUsers().then((res: any) => {
-            this.dataSource = res;
+            this.dataSource = new MatTableDataSource(res);
             this.users = res;
             this.isLoading = false;
         });

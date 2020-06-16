@@ -76,5 +76,8 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <router-outlet></router-outlet>
+        <ng-container *ngIf="user">
+            <app-footer *ngIf="user" [user]= "stockObj" ></app-footer>
+        </ng-container>
     </mat-sidenav-content>
 </mat-sidenav-container>

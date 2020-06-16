@@ -3,9 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
-
 
 .cards-container {
     margin-top: 23px;
@@ -23,34 +21,30 @@
     }
 }
 
-
 .buy-button {
     background-color: #626ee3;
-    color:white;
+    color: white;
     width: 140px;
     height: 50px;
     font-size: 16px;
 }
 
-
 .filler {
     flex: 1 1 auto;
 }
 
+mat-form-field {
+    width: 210px;
+}
 
 .title {
     text-align: center;
     margin: 40px 0 40px;
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     font-size: 25px;
     color: #626ee3;
-
 }
 
 mat-divider {
     margin: 10px 70px 70px 70px;
 }
-
-
-
-

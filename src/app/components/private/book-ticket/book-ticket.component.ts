@@ -13,12 +13,19 @@ import { CheckoutComponent } from '../checkout/checkout.component';
 })
 export class BookTicketComponent implements OnInit {
     events: any;
+    dateFilter: Date;
+    selected = 'newest';
     constructor(private eventService: EventService , private snackBar: MatSnackBar, private dialog: MatDialog) {}
 
     ngOnInit(): void {
         this.eventService.getEvents().then((res) => {
             this.events = res;
         });
+    }
+
+    filterDate() {
+        console.log(this.dateFilter);
+        console.log('you call me');
     }
 
 

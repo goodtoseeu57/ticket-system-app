@@ -149,6 +149,7 @@ $animationSpeed: 30s;
 
 .option-link {
     margin-left: 34px;
+    color: chocolate;
     cursor: pointer;
     font: 500 16px/20px Google Sans,Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
 }
@@ -216,4 +217,29 @@ mat-divider {
   font-size: 30px;
   text-align: center;
 }
+}
+
+.first-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 70px;
+    .get-started {
+        border: 1px solid #626ee3;
+        border-radius: 4px;
+        background-color: white;
+        color: black;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+     .get-started:hover {
+         background-color: #626ee3;
+        background-image: linear-gradient(135deg,rgba(0,0,0,0.1) 25%,transparent 25%,transparent 50%,rgba(0,0,0,0.1) 50%,rgba(0,0,0,0.1) 75%,transparent 75%,transparent);
+        color: #ffffff;
+        -webkit-animation: animation-15lk19q 2.8s linear infinite;
+        animation: animation-15lk19q 2.8s linear infinite;
+     }  
+     
 }
