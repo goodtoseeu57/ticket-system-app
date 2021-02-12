@@ -10,9 +10,18 @@
 <div class="calendar">
     <mat-form-field appearance="outline">
         <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="dateFilter" (ngModelChange)="filterDate($event)" />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker  #picker></mat-datepicker>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="filter-option" appearance="outline">
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected" required>
+            <mat-option value="older"> Oldest </mat-option>
+            <mat-option value="newest"> Newest</mat-option>
+        </mat-select>
+        <mat-hint> Desceding </mat-hint>
     </mat-form-field>
 </div>
 
@@ -22,9 +31,9 @@
         <mat-card-subtitle> Date of the event {{event.date | date: 'medium'}} </mat-card-subtitle>
         <mat-card-content>
             <p>
-                {{event.location}}  is a port city situated on the south coast of Devon, England, approximately 37 miles (60 km) south-west of Exeter and 190 miles (310 km)
-                west-south-west of London.
-                Enclosing the city are the mouths of the river Plym and river Tamar, which are naturally incorporated into Plymouth Sound to form a boundary with Cornwall.
+                {{event.location}} is a port city situated on the south coast of Devon, England, approximately 37 miles (60 km) south-west
+                of Exeter and 190 miles (310 km) west-south-west of London. Enclosing the city are the mouths of the river Plym and river
+                Tamar, which are naturally incorporated into Plymouth Sound to form a boundary with Cornwall.
             </p>
         </mat-card-content>
 
@@ -34,15 +43,13 @@
             </mat-chip>
             <mat-chip color="primary" *ngIf="event.tickets > 0"> Available tickets {{event.tickets}} </mat-chip>
             <mat-chip color="warn" *ngIf="event.tickets === 0" selected> Out of stock </mat-chip>
-            <mat-chip selected routerLink="/private/event-details/{{event._id}}">  Learn more <span class="filler"></span> <mat-icon>arrow_forward</mat-icon> </mat-chip>
+            <mat-chip selected routerLink="/private/event-details/{{event._id}}">
+                Learn more <span class="filler"></span> <mat-icon>arrow_forward</mat-icon>
+            </mat-chip>
             <span class="filler"> </span>
-            <button mat-raised-button class="buy-button" [disabled]="event.tickets === 0" (click)="buyTicket(event)"> <mat-icon>credit_card</mat-icon> Buy now</button>
-
+            <button mat-raised-button class="buy-button" [disabled]="event.tickets === 0" (click)="buyTicket(event)">
+                <mat-icon>credit_card</mat-icon> Buy now
+            </button>
         </mat-chip-list>
-
-
     </mat-card>
-
 </div>
-
-

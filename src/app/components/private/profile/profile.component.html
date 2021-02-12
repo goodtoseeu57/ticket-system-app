@@ -1,7 +1,9 @@
-<mat-toolbar class="unique-toolbar-component">
+<ng-container *ngIf="user">
+
+<mat-toolbar *ngIf="user" class="unique-toolbar-component">
     Profile
 </mat-toolbar>
-<p class="title">
+<p *ngIf="user" class="title">
     Edit your profile
 </p>
 <mat-divider></mat-divider>
@@ -88,3 +90,5 @@
 
 
 </footer>
+
+</ng-container>

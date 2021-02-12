@@ -4,6 +4,8 @@ import { EventService } from '../../../services/event.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../../environments/environment';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import '@github/markdown-toolbar-element';
 
 @Component({
     selector: 'app-book-event',
@@ -12,7 +14,9 @@ import { environment } from '../../../../environments/environment';
 })
 export class BookEventComponent implements OnInit {
     selected = 'Rock';
-
+    Editor = ClassicEditor;
+    editorData : any;
+    editorDataMarkDown: any;
     map: mapboxgl.Map;
     style = 'mapbox://styles/mapbox/streets-v11';
     lat = 50.3755;
@@ -61,6 +65,10 @@ export class BookEventComponent implements OnInit {
             console.log(err);
             this.openSnackBar(err.error.errorMessage, 'failureCssSnackBar');
         });
+    }
+
+    showCkeditor() {
+        console.log(this.editorData);
     }
 
 

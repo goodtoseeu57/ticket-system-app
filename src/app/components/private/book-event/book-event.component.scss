@@ -1,8 +1,4 @@
 
-mat-form-field {
- width: 300px;    
-
-}
 mat-card {
 
     height: 100%;
@@ -10,20 +6,25 @@ mat-card {
     background-color: #fafafa;
 
     justify-content: center;
+
     .event-info {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
+        mat-form-field {
+            width: 630px;
+        }
     }
 
-        .create-event-button{
-            background-color: #626ee3;
-            color:white;
-            height: 50px;
-            font-size: 16px;
-            width: 300px;
+    .create-event-button {
+        margin-top: 30px;
+        background-color: #626ee3;
+        color: white;
+        height: 50px;
+        font-size: 16px;
+        width: 630px;
     }
 
     .create-event-button:disabled {
@@ -45,8 +46,8 @@ mat-card {
 }
 
 mat-slide-toggle {
-     margin-top: 80px;
-    color:  #626ee3;
+    margin-top: 80px;
+    color: #626ee3;
 }
 
 

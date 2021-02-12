@@ -43,7 +43,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CheckoutComponent } from './components/private/checkout/checkout.component';
 import { ForgotPasswordComponent } from './components/public/forgot-password/forgot-password.component';
 import { ConfirmPasswordComponent } from './components/public/confirm-password/confirm-password.component';
-
+import { FooterComponent } from './components/private/footer/footer.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CKEditorModule} from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -64,15 +66,17 @@ import { ConfirmPasswordComponent } from './components/public/confirm-password/c
     CheckoutComponent,
     ForgotPasswordComponent,
     ConfirmPasswordComponent,
+    FooterComponent,
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        CKEditorModule,
         BrowserAnimationsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule,
         MatCardModule, HttpClientModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule,
         MatChipsModule, MatDatepickerModule,
         MatNativeDateModule, MatGridListModule, MatMenuModule,
-        FormsModule, MatSelectModule, MatTableModule,
+        FormsModule, MatSelectModule, MatTableModule, MatCheckboxModule ,
         MatPaginatorModule, MatProgressSpinnerModule, MatSnackBarModule,
         MatSlideToggleModule, MatSliderModule, MatDialogModule, MatStepperModule
     ],

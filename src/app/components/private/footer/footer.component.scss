@@ -1,23 +1,21 @@
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.container {
-    background-image: linear-gradient(45deg, #6303B1, #ff0099);
-	transform: skewY(-11deg);
+    background-color: #02203c;
+   
 }
 
 .content-form {
-    transform: skewY(11deg);
+    background-color: #eeeeee;
     flex-grow: 1;
     margin-top: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 600px;
-    height: 300px;
+    width: 800px;
+    margin-bottom: 30px;
     .email {
         margin-top: 10px;
         width: 400px;
@@ -58,3 +56,4 @@
         }
     }
 }
+

@@ -14,10 +14,10 @@ import {NotFoundComponent} from './components/public/not-found/not-found.compone
 import {PresentationLandingPageComponent} from './components/public/presentation-landing-page/presentation-landing-page.component';
 import { ForgotPasswordComponent } from './components/public/forgot-password/forgot-password.component';
 import { ConfirmPasswordComponent } from './components/public/confirm-password/confirm-password.component';
+import { FooterComponent } from './components/private/footer/footer.component';
 
 
 const routes: Routes = [
-    {path: '' , redirectTo: 'private/book-ticket' , pathMatch: 'full' },
     {path: '' , redirectTo: 'public/presentation', pathMatch: 'full'},
     {path: 'public' , component: PublicComponent , children: [
         {path: 'presentation' , component: PresentationLandingPageComponent},
@@ -32,7 +32,8 @@ const routes: Routes = [
             {path: 'profile' , component: ProfileComponent} ,
             {path: 'book-event' , component: BookEventComponent} ,
             {path: 'creators-events' , component: CreatorsAndEventsComponent} ,
-            {path: 'event-details/:id' , component: EventDetailsComponent}
+            {path: 'event-details/:id' , component: EventDetailsComponent},
+            {path: 'footer', component: FooterComponent}
         ] },
 
     {path: '**' , component: NotFoundComponent}

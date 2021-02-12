@@ -16,7 +16,7 @@
         </mat-select>
     </mat-form-field>
 
-
+<div class="mat-elevation-z8">
 <table  *ngIf="!isLoading" mat-table [dataSource]="dataSource">
 
     <!-- Position Column -->
@@ -60,6 +60,7 @@
 
 </table>
 
+</div>
 
 <p style="text-align: center; margin-top: 40px; font-size: 40px;"> Available Events </p>
 
@@ -84,16 +85,12 @@
             <button mat-button class="detail-button" routerLink="/private/event-details/{{event._id}}">Details</button>
             <button mat-button class="edit-button" [disabled]="event.tickets === 0" (click)="buyTicket(event)">Buy Now</button>
         </mat-chip-list>
-
     </mat-card>
-
 </div>
-
     <mat-divider></mat-divider>
-
-
 </div>
 
-<footer *ngIf="user.role === 'superAdmin'" class="footer">
 
-</footer>
+
+
+

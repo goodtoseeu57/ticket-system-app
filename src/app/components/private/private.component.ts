@@ -14,15 +14,16 @@ export class PrivateComponent implements OnInit {
     user: User;
     firstLetter: string;
     events: EventModel;
+    stockObj: any;
 
     constructor(private authService: AuthService, private userService: UserService , private eventService: EventService) {
     }
 
     ngOnInit(): void {
+        
         this.getCurrentUser();
         this.eventService.getEvents().then((res: EventModel) => {
             this.events = res;
-    
         });
     }
 
@@ -31,6 +32,7 @@ export class PrivateComponent implements OnInit {
         this.userService.getCurrentUser(id).then((res: User) => {
             this.user = res;
             console.log(this.user);
+            this.stockObj = this.user;
             this.firstLetter = this.user.first_name.substring(0, 1).toUpperCase();
         });
 

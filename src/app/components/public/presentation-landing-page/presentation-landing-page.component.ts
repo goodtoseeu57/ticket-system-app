@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import * as mapboxgl from 'mapbox-gl';
 
@@ -7,7 +7,8 @@ import * as mapboxgl from 'mapbox-gl';
   templateUrl: './presentation-landing-page.component.html',
   styleUrls: ['./presentation-landing-page.component.scss']
 })
-export class PresentationLandingPageComponent implements OnInit {
+export class PresentationLandingPageComponent implements OnInit, AfterViewInit {
+    @ViewChild('toolbar') child: any;
 
     map: mapboxgl.Map;
     style = 'mapbox://styles/mapbox/streets-v11';
@@ -25,6 +26,12 @@ export class PresentationLandingPageComponent implements OnInit {
           zoom: 13,
           center: [this.lng, this.lat]
       });
+  }
+
+  ngAfterViewInit(): void {
+      console.log('ngfterviewinit' , this.child);
+      this.child.style.backgroundColor = 'lightblue';
+
   }
 
 }

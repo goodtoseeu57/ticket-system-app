@@ -7,57 +7,53 @@
 </p>
 <mat-divider></mat-divider>
 
-
 <mat-card>
-<div class="event-info">
-    <form [formGroup]="eventForm">
-    <p>
-        <mat-form-field appearance="outline">
-            <mat-label>Location</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="location" required>
-            <mat-hint> Location </mat-hint>
-        </mat-form-field>
-    </p>
+    <div class="event-info">
+        <form [formGroup]="eventForm">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Location</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="location" required>
+                    <mat-hint> Location</mat-hint>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select an option</mat-label>
+                    <mat-select [(value)]="selected" formControlName="concertType" required>
+                        <mat-option>None</mat-option>
+                        <mat-option value="Rock">Rock</mat-option>
+                        <mat-option value="Pop">Pop</mat-option>
+                        <mat-option value="Hip-Hop">Hip-Hop</mat-option>
+                        <mat-option value="Techno">Techno</mat-option>
+                    </mat-select>
+                    <mat-hint> Type of concert</mat-hint>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Available tickets</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="tickets" required>
+                    <mat-hint> Number of tickets</mat-hint>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </p>
+             <ckeditor style="width: 300px" class="ckeditor" [(ngModel)]="editorData" [editor]="Editor"></ckeditor>
+            <button class="create-event-button" mat-raised-button type="submit" [disabled]="!eventForm.valid"
+                    (click)="onSubmit()"> Create an event
+            </button>
+        </form>
 
-    <p>
-        <mat-form-field appearance="outline">
-            <mat-label>Select an option</mat-label>
-            <mat-select [(value)]="selected" formControlName="concertType" required>
-                <mat-option>None</mat-option>
-                <mat-option value="Rock">Rock</mat-option>
-                <mat-option value="Pop">Pop</mat-option>
-                <mat-option value="Hip-Hop">Hip-Hop</mat-option>
-                <mat-option value="Techno">Techno</mat-option>
-            </mat-select>
+        <mat-slide-toggle (click)="trackUser()"> Track my location</mat-slide-toggle>
 
-            <mat-hint> Type of concert</mat-hint>
-        </mat-form-field>
-
-    </p>
-    <p>
-        <mat-form-field appearance="outline">
-            <mat-label>Available tickets</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="tickets" required>
-            <mat-hint> Number of tickets </mat-hint>
-        </mat-form-field>
-    </p>
-
-    <p>
-    <mat-form-field appearance="outline">
-        <mat-label>Choose a date</mat-label>
-        <input matInput  [matDatepicker]="picker" formControlName="date" required>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    </p>
-        <button class="create-event-button" mat-raised-button type="submit"  [disabled]="!eventForm.valid" (click)="onSubmit()"> Create an event</button>
-    </form>
-    <mat-slide-toggle (click)="trackUser()"> Track my location </mat-slide-toggle>
-
-    <div class="map" id="map" class="match-parent" ></div>
-</div>
-
-
-
+        <div class="map" id="map" class="match-parent"></div>
+    </div>
 </mat-card>
 
