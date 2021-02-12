@@ -8,10 +8,16 @@ import { User } from 'src/app/models/User';
 })
 export class FooterComponent implements OnInit {
   @Input() public user: any;
+  emailSent = false;
+  email: string; 
   constructor() { }
 
   ngOnInit(): void {
       console.log(this.user);
   }
+
+    newsLetterSubscription() {
+        console.log('fuc');
+    }
 
 }

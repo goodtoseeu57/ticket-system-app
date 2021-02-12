@@ -23,7 +23,7 @@ export class BookTicketComponent implements OnInit {
         });
     }
 
-    filterDate() {
+    filterDate(ev) {
         console.log(this.dateFilter);
         console.log('you call me');
     }

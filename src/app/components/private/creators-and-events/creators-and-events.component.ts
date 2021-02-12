@@ -61,8 +61,10 @@ export class CreatorsAndEventsComponent implements OnInit , AfterViewInit {
 
     getAllUsers() {
         this.userService.getAllUsers().then((res: any) => {
-            this.dataSource = new MatTableDataSource(res);
+            // this.dataSource = new MatTableDataSource(res);
+            this.dataSource = res;
             this.users = res;
+
             this.isLoading = false;
         });
     }
@@ -115,7 +117,7 @@ export class CreatorsAndEventsComponent implements OnInit , AfterViewInit {
 
     applyFilter(filterValue) {
         console.log(filterValue);
-        this.dataSource.filter = filterValue.trim().toLowerCase();
+        // this.dataSource.filter = filterValue.trim().toLowerCase();
     }
 
 

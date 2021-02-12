@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {ApiService} from './api.service';
-import {User} from '../models/User';
-import {BehaviorSubject} from 'rxjs';
+import { ApiService } from './api.service';
+import { User } from '../models/User';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class UserService {
     private user: any;
@@ -13,14 +13,14 @@ export class UserService {
     constructor(private apiService: ApiService) {
     }
 
-     getCurrentUser(id) {
+    getCurrentUser(id) {
         return new Promise((resolve, reject) => {
             this.apiService.get(`user/${id}`).then((res) => {
-                    console.log(res);
-                    this.user = res;
-                    this.userInfoSubject.next(this.user);
-                    console.log(this.user);
-                    resolve(res);
+                console.log(res);
+                this.user = res;
+                this.userInfoSubject.next(this.user);
+                console.log(this.user);
+                resolve(res);
             }, (err) => {
                 console.log(err);
                 reject(err);
@@ -29,7 +29,7 @@ export class UserService {
     }
 
     getUserFirstLetter(name: string) {
-        return name.substring(0 , 1).toUpperCase();
+        return name.substring(0, 1).toUpperCase();
     }
 
     getAllUsers() {
@@ -45,19 +45,19 @@ export class UserService {
 
     updateUser(data) {
         return new Promise((resolve, reject) => {
-           this.apiService.put('user/update' , data).then((res) => {
-               resolve(res);
-           } , (err) => {
-               reject(err);
+            this.apiService.put('user/update', data).then((res) => {
+                resolve(res);
+            }, (err) => {
+                reject(err);
+            });
         });
-    });
     }
 
     updateMeUser(data) {
         return new Promise((resolve, reject) => {
-            this.apiService.put('user-personal/update' , data).then((res) => {
+            this.apiService.put('user-personal/update', data).then((res) => {
                 resolve(res);
-            } , (err) => {
+            }, (err) => {
                 reject(err);
             });
         });
@@ -67,14 +67,20 @@ export class UserService {
         return new Promise((resolve, reject) => {
             this.apiService.delete(`user/delete/${id}`).then((res) => {
                 resolve(res);
-            } , (err) => {
+            }, (err) => {
                 reject(err);
             });
         });
     }
 
-    postForgotPassword() {
-
+    postForgotPassword(email) {
+        return new Promise((resolve, reject) => {
+            this.apiService.login('forgot-password', email).then((res: any) => {
+                resolve(res);
+            }).catch((err) => {
+                reject(err);
+            });
+        });
     }
     postConfirnPassword() {
 

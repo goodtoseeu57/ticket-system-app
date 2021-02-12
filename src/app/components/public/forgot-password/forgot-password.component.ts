@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
     selector: 'app-forgot-password',
@@ -27,7 +28,9 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
     }
 
     forgotPassword() {
+        this.userService.postForgotPassword(this.email).then((res) => console.log(res));
         console.log(this.email);
+     
     }
 
 }
