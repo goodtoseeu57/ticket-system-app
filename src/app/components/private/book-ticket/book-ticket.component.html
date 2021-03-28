@@ -17,7 +17,7 @@
 
     <mat-form-field class="filter-option" appearance="outline">
         <mat-label>Select an option</mat-label>
-        <mat-select [(value)]="selected" required>
+        <mat-select [(value)]="selected" required [(ngModel)]="sortFilter" [placeholder]="selected" (ngModelChange)="applyFilters(sortFilter)">
             <mat-option value="older"> Oldest </mat-option>
             <mat-option value="newest"> Newest</mat-option>
         </mat-select>

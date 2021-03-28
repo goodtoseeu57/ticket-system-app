@@ -8,9 +8,13 @@ export class EventService {
 
   constructor(private apiService: ApiService) { }
 
-  getEvents() {
+  getEvents(applyFilters?: string) {
       return new Promise((resolve, reject) => {
-         this.apiService.get('events').then((res) => {
+          let route = 'events';
+          if (applyFilters) {
+              route = route + applyFilters;
+          }
+          this.apiService.get(route ).then((res) => {
              resolve(res);
          } , (err) => {
              reject(err);

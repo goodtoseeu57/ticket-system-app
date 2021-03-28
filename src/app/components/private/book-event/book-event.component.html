@@ -45,7 +45,7 @@
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
             </p>
-             <ckeditor style="width: 300px" class="ckeditor" [(ngModel)]="editorData" [editor]="Editor"></ckeditor>
+             <ckeditor style="width: 300px" class="ckeditor"  [editor]="Editor"></ckeditor>
             <button class="create-event-button" mat-raised-button type="submit" [disabled]="!eventForm.valid"
                     (click)="onSubmit()"> Create an event
             </button>

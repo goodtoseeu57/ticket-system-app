@@ -14,13 +14,30 @@ import { CheckoutComponent } from '../checkout/checkout.component';
 export class BookTicketComponent implements OnInit {
     events: any;
     dateFilter: Date;
+    sortFilter: string;
     selected = 'newest';
+    filters: string;
     constructor(private eventService: EventService , private snackBar: MatSnackBar, private dialog: MatDialog) {}
 
     ngOnInit(): void {
-        this.eventService.getEvents().then((res) => {
+        this.filters = '?desc=1';
+        this.loadData(this.filters);
+    }
+
+    loadData(filters) {
+        this.eventService.getEvents(filters).then((res) => {
             this.events = res;
         });
+    }
+
+    applyFilters(sortFilter) {
+        console.log(sortFilter);
+        if (sortFilter === 'older') {
+           this.filters =  '?desc=1';
+        } else {
+            this.filters =  '?desc=-1';
+        }
+        this.loadData(this.filters + '&ticket=greaterThanZero');
     }
 
     filterDate(ev) {

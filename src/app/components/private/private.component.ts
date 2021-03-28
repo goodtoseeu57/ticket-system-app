@@ -20,7 +20,6 @@ export class PrivateComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        
         this.getCurrentUser();
         this.eventService.getEvents().then((res: EventModel) => {
             this.events = res;
